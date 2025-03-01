@@ -1,0 +1,21 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": [
+    "src/main.tsx"
+  ],
+  "project": [
+    "src/**/*.{ts,tsx}"
+  ],
+  "ignoreDependencies": [],
+  "ignoreExports": [
+    "src/context/HeaderContext.tsx",
+    "src/data/dialogueCategories.ts",
+    "src/types/medicalDialogue.ts",
+    "src/utils/dialogueLoader.ts",
+    "src/utils/storage.ts"
+  ],
+  "ignoreExportsUsedInFile": {
+    "interface": true,
+    "type": true
+  }
+}

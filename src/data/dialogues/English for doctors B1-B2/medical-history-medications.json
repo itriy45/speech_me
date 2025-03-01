@@ -1,0 +1,346 @@
+{
+"id": "medical-history-medications",
+"title": "Lesson 3 | Taking Medical History: Medications",
+"difficulty": "B1",
+"description": "Practice asking questions about patient's medical history and current medications",
+"conversation": [
+{
+"type": "instruction",
+"teacherApp": "Say \"Yes\" if you are ready to practice medical English",
+"expectedResponse": "Yes"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: історія хвороби",
+"expectedResponse": "medical history",
+"ukrainian": "історія хвороби"
+},
+{
+"type": "conversation",
+"teacherApp": "Obtain the consent: Можна поставити вам декілька запитань про вашу історію хвороби?",
+"expectedResponse": "May I ask you some questions about your medical history?",
+"ukrainian": "Можна поставити вам декілька запитань про вашу історію хвороби?"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: У вас є якісь серйозні або хронічні захворювання?",
+"expectedResponse": "Do you have any severe or chronic diseases?",
+"ukrainian": "У вас є якісь серйозні або хронічні захворювання?"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Чи приймаєте ви якісь ліки зараз?",
+"expectedResponse": "Are you taking any medications at the moment?",
+"ukrainian": "Чи приймаєте ви якісь ліки зараз?",
+"grammarNote": "[Present Continuous]"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: безрецептурні препарати",
+"expectedResponse": "over-the-counter medicines",
+"ukrainian": "безрецептурні препарати"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Чи ви вживаєте безрецептурні препарати?",
+"expectedResponse": "Do you use any over-the-counter medicines?",
+"ukrainian": "Чи ви вживаєте безрецептурні препарати?"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Можна поставити вам декілька запитань про вашу історію хвороби?",
+"expectedResponse": "May I ask you some questions about your medical history?",
+"ukrainian": "Можна поставити вам декілька запитань про вашу історію хвороби?"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Скільки разів на день ви приймаєте ці ліки?",
+"expectedResponse": "How many times a day do you take these medicines?",
+"ukrainian": "Скільки разів на день ви приймаєте ці ліки?"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Яка доза цих ліків?",
+"expectedResponse": "What is the dose of these medications?",
+"ukrainian": "Яка доза цих ліків?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask a patient: Скільки разів на день ви приймаєте ці ліки?",
+"expectedResponse": "How many times a day do you take these medications?",
+"ukrainian": "Скільки разів на день ви приймаєте ці ліки?"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Чи ви використовуєте безрецептурні препарати?",
+"expectedResponse": "Do you use any over-the-counter medicines?",
+"ukrainian": "Чи ви використовуєте безрецептурні препарати?"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say: У вас є алергія на якісь ліки?",
+"expectedResponse": "Are you allergic to any drugs?",
+"ukrainian": "У вас є алергія на якісь ліки?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask a patient: Які у вас симптоми після прийому ліків?",
+"expectedResponse": "What symptoms do you have after taking medications?",
+"ukrainian": "Які у вас симптоми після прийому ліків?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: запаморочення",
+"expectedResponse": "dizziness",
+"ukrainian": "запаморочення"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: У вас буває запаморочення?",
+"expectedResponse": "Do you have dizziness?",
+"ukrainian": "У вас буває запаморочення?"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: У вас є висипання після прийому ліків?",
+"expectedResponse": "Do you have any rash after taking medications?",
+"ukrainian": "У вас є висипання після прийому ліків?"
+},
+{
+"type": "repeat",
+"teacherApp": "Ask a patient: Які у вас симптоми після прийому ліків?",
+"expectedResponse": "What symptoms do you have after taking medications?",
+"ukrainian": "Які у вас симптоми після прийому ліків?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: сімейний анамнез",
+"expectedResponse": "family history",
+"ukrainian": "сімейний анамнез"
+},
+{
+"type": "conversation",
+"teacherApp": "Чи можу я поставити вам декілька запитань про сімейний анамнез?",
+"expectedResponse": "Can I ask you a few questions about your family history?",
+"ukrainian": "Чи можу я поставити вам декілька запитань про сімейний анамнез?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate in one word: брати і сестри",
+"expectedResponse": "siblings",
+"ukrainian": "брати і сестри"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: У вас є брати або сестри?",
+"expectedResponse": "Do you have any siblings?",
+"ukrainian": "У вас є брати або сестри?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask a patient: Ваші батьки живі і здорові?",
+"expectedResponse": "Are your parents alive and well?",
+"ukrainian": "Ваші батьки живі і здорові?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: спадкові захворювання",
+"expectedResponse": "hereditary diseases",
+"ukrainian": "спадкові захворювання"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Чи є у вашій родині спадкові захворювання?",
+"expectedResponse": "Do you have any hereditary diseases in your family?",
+"ukrainian": "Чи є у вашій родині спадкові захворювання?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: рак",
+"expectedResponse": "cancer",
+"ukrainian": "рак"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Чи хтось у вашій родині хворів на рак?",
+"expectedResponse": "Has anyone in your family had cancer?",
+"ukrainian": "Чи хтось у вашій родині хворів на рак?"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Чи можу я поставити вам декілька запитань про сімейний анамнез?",
+"expectedResponse": "Can I ask you a few questions about your family history?",
+"ukrainian": "Чи можу я поставити вам декілька запитань про сімейний анамнез?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask about occupation: Ким ви працюєте?",
+"expectedResponse": "What do you do for a living?",
+"ukrainian": "Ким ви працюєте?"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: У вас є проблеми на роботі?",
+"expectedResponse": "Do you have any problems at work?",
+"ukrainian": "У вас є проблеми на роботі?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask about social habits: Ви курите?",
+"expectedResponse": "Do you smoke?",
+"ukrainian": "Ви курите?"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Скільки цигарок на день?",
+"expectedResponse": "How many cigarettes a day?",
+"ukrainian": "Скільки цигарок на день?"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Ким ви працюєте?",
+"expectedResponse": "What do you do for a living?",
+"ukrainian": "Ким ви працюєте?"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Чи вживаєте ви алкоголь взагалі?",
+"expectedResponse": "Do you drink alcohol at all?",
+"ukrainian": "Чи вживаєте ви алкоголь взагалі?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask about alcohol consumption: Як часто ви вживаєте алкоголь?",
+"expectedResponse": "How often do you drink alcohol?",
+"ukrainian": "Як часто ви вживаєте алкоголь?"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Що стосовно фізичної активності?",
+"expectedResponse": "What about physical activity?",
+"ukrainian": "Що стосовно фізичної активності?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: нелегальні препарати [наркотики]",
+"expectedResponse": "illicit drugs",
+"ukrainian": "нелегальні препарати",
+"grammarNote": "[наркотики]"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Ви коли-небудь пробували нелегальні препарати?",
+"expectedResponse": "Have you ever tried illicit drugs?",
+"ukrainian": "Ви коли-небудь пробували нелегальні препарати?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: болюча менструація",
+"expectedResponse": "painful periods",
+"ukrainian": "болюча менструація"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask a patient: Чи була у вас болюча менструація раніше?",
+"expectedResponse": "Have you had painful periods before?",
+"ukrainian": "Чи була у вас болюча менструація раніше?",
+"grammarNote": "[Present Perfect]"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Чи вживаєте ви алкоголь взагалі?",
+"expectedResponse": "Do you drink alcohol at all?",
+"ukrainian": "Чи вживаєте ви алкоголь взагалі?"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Доброго ранку, я лікар Блек. Можна задати вам декілька запитань про вашу історію хвороби?",
+"expectedResponse": "Good morning, I am Doctor Black. May I ask you some questions about your medical history?",
+"ukrainian": "Доброго ранку, я лікар Блек. Можна задати вам декілька запитань про вашу історію хвороби?"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Чи приймаєте ви якісь ліки зараз?",
+"expectedResponse": "Are you taking any medications at the moment?",
+"ukrainian": "Чи приймаєте ви якісь ліки зараз?",
+"grammarNote": "[Present Continuous]"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Чи ви вживаєте безрецептурні препарати?",
+"expectedResponse": "Do you use any over-the-counter medicines?",
+"ukrainian": "Чи ви вживаєте безрецептурні препарати?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask a patient: Які у вас симптоми після прийому ліків?",
+"expectedResponse": "What symptoms do you have after taking medications?",
+"ukrainian": "Які у вас симптоми після прийому ліків?"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: У вас буває запаморочення?",
+"expectedResponse": "Do you have dizziness?",
+"ukrainian": "У вас буває запаморочення?"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Чи можу я поставити вам декілька запитань про сімейний анамнез?",
+"expectedResponse": "Can I ask you a few questions about your family history?",
+"ukrainian": "Чи можу я поставити вам декілька запитань про сімейний анамнез?"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: У вас є брати або сестри?",
+"expectedResponse": "Do you have any siblings?",
+"ukrainian": "У вас є брати або сестри?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask a patient: Ваші батьки живі і здорові?",
+"expectedResponse": "Are your parents alive and well?",
+"ukrainian": "Ваші батьки живі і здорові?"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Чи є у вашій родині спадкові захворювання?",
+"expectedResponse": "Do you have any hereditary diseases in your family?",
+"ukrainian": "Чи є у вашій родині спадкові захворювання?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask about occupation: Ким ви працюєте?",
+"expectedResponse": "What do you do for a living?",
+"ukrainian": "Ким ви працюєте?"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: У вас є проблеми на роботі?",
+"expectedResponse": "Do you have any problems at work?",
+"ukrainian": "У вас є проблеми на роботі?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask about social habits: Ви курите?",
+"expectedResponse": "Do you smoke?",
+"ukrainian": "Ви курите?"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Скільки цигарок на день?",
+"expectedResponse": "How many cigarettes a day?",
+"ukrainian": "Скільки цигарок на день?"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: На основі вашого анамнезу, я призначу деякі обстеження.",
+"expectedResponse": "Based on your medical history, I will order some tests.",
+"ukrainian": "На основі вашого анамнезу, я призначу деякі обстеження."
+},
+{
+"type": "instruction",
+"teacherApp": "Well done, that is all for today's lesson, say \"finish\" to end the lesson",
+"expectedResponse": "finish"
+}
+]
+}

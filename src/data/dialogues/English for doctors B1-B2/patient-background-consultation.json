@@ -1,0 +1,350 @@
+{
+"id": "patient-background-consultation",
+"title": "Lesson 1 | First Patient Consultation",
+"difficulty": "B1",
+"description": "Practice gathering patient background information and basic medical consultation phrases",
+"conversation": [
+{
+"type": "instruction",
+"teacherApp": "Say \"Yes\" if you are ready to practice medical English",
+"expectedResponse": "Yes"
+},
+
+{
+"type": "conversation",
+"teacherApp": "Say: лікар загальної практики",
+"expectedResponse": "general practitioner",
+"ukrainian": "лікар загальної практики",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Доброго ранку, я лікар Браун, лікар загальної практики",
+"expectedResponse": "Good morning, I am Doctor Brown, a general practitioner",
+"ukrainian": "Доброго ранку, я лікар Браун, лікар загальної практики",
+"grammarNote": "Present Simple"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Good morning, I am Doctor Brown, a general practitioner",
+"expectedResponse": "Good morning, I am Doctor Brown, a general practitioner"
+},
+
+{
+"type": "conversation",
+"teacherApp": "Say: Привести/принести",
+"expectedResponse": "brought",
+"ukrainian": "Привести/принести?",
+"grammarNote": "Present Perfect"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Що привело вас сьогодні до нас?",
+"expectedResponse": "What has brought you here today?",
+"ukrainian": "Що привело вас сьогодні до нас?",
+"grammarNote": "Present Perfect"
+},
+
+{
+"type": "conversation",
+"teacherApp": "Say: Турбувати",
+"expectedResponse": "bothering",
+"ukrainian": "Турбувати",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say: Можете розповісти, що вас турбує?",
+"expectedResponse": "Can you tell me what seems to be bothering you?",
+"ukrainian": "Можете розповісти, що вас турбує?",
+"grammarNote": ""
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Can you tell me what seems to be bothering you?",
+"expectedResponse": "Can you tell me what seems to be bothering you?"
+},
+
+{
+"type": "conversation",
+"teacherApp": "Translate:  сімейний стан",
+"expectedResponse": "marital status",
+"ukrainian": "сімейний стан",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say: Спочатку мені потрібно задати вам кілька запитань про ваш сімейний стан",
+"expectedResponse": "First, I need to ask you a few questions about your marital status",
+"ukrainian": "Спочатку мені потрібно задати вам кілька запитань про ваш сімейний стан",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Ви одружені?",
+"expectedResponse": "Are you married?",
+"ukrainian": "Ви одружені?",
+"grammarNote": ""
+},
+
+{
+"type": "conversation",
+"teacherApp": "How do you translate: вдова",
+"expectedResponse": "widow",
+"ukrainian": "вдова",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say: Ні, я вдова, мій чоловік помер два роки тому",
+"expectedResponse": "No, I am a widow, my husband died two years ago",
+"ukrainian": "Ні, я вдова, мій чоловік помер два роки тому",
+"grammarNote": "Past Simple"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: No, I am a widow, my husband died two years ago",
+"expectedResponse": "No, I am a widow, my husband died two years ago"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Ви зараз працюєте?",
+"expectedResponse": "Are you currently working?",
+"ukrainian": "Ви зараз працюєте?",
+"grammarNote": "Present Continuous"
+},
+{
+"type": "conversation",
+"teacherApp": "Now say: Ні, я на пенсії",
+"expectedResponse": "No, I'm retired",
+"ukrainian": "Ні, я на пенсії",
+"grammarNote": ""
+},
+{
+  "type": "conversation",
+  "teacherApp": "Translate: Скажіть, будь ласка, де саме болить?",
+  "expectedResponse": "Can you tell me where exactly it hurts?",
+  "ukrainian": "Скажіть, будь ласка, де саме болить?",
+  "grammarNote": ""
+},
+{
+  "type": "repeat",
+  "teacherApp": "Repeat: Can you tell me where exactly it hurts?",
+  "expectedResponse": "Can you tell me where exactly it hurts?"
+},
+{
+  "type": "conversation",
+  "teacherApp": "Translate: Можете показати, яка частина тіла уражена?",
+  "expectedResponse": "Can you show me which part of your body is affected?",
+  "ukrainian": "Можете показати, яка частина тіла уражена?",
+  "grammarNote": ""
+},
+{
+  "type": "conversation",
+  "teacherApp": "How do you say: раптово чи поступово?",
+  "expectedResponse": "sudden or gradual?",
+  "ukrainian": "раптово чи поступово?",
+  "grammarNote": ""
+},
+{
+  "type": "conversation",
+  "teacherApp": "Now say: Коли почався біль, раптово чи поступово?",
+  "expectedResponse": "When did the pain start, was it sudden or gradual?",
+  "ukrainian": "Коли почався біль, раптово чи поступово?",
+  "grammarNote": "Past Simple"
+},
+{
+  "type": "repeat",
+  "teacherApp": "Repeat: When did the pain start, was it sudden or gradual?",
+  "expectedResponse": "When did the pain start, was it sudden or gradual?"
+},
+{
+  "type": "conversation",
+  "teacherApp": "Translate: приходить й зникає",
+  "expectedResponse": "come and go",
+  "ukrainian": "приходить й зникає",
+  "grammarNote": ""
+},
+{
+  "type": "conversation",
+  "teacherApp": "Translate: Біль постійний чи приходить і зникає?",
+  "expectedResponse": "Is the pain constant or does it come and go?",
+  "ukrainian": "Біль постійний чи приходить і зникає?",
+  "grammarNote": "Present Simple"
+},
+{
+  "type": "conversation",
+  "teacherApp": "How do you ask: Чи біль віддає в інші частини тіла?",
+  "expectedResponse": "Does the pain radiate to other parts of the body?",
+  "ukrainian": "Чи біль віддає в інші частини тіла?",
+  "grammarNote": "Present Simple"
+},
+{
+  "type": "conversation",
+  "teacherApp": "Say: окрім",
+  "expectedResponse": "apart",
+  "ukrainian": "окрім",
+  "grammarNote": ""
+},
+{
+  "type": "conversation",
+  "teacherApp": "Translate: У вас є інші симптоми окрім болю?",
+  "expectedResponse": "Do you have any other symptoms apart from the pain?",
+  "ukrainian": "У вас є інші симптоми окрім болю?",
+  "grammarNote": "Present Simple"
+},
+{
+  "type": "conversation",
+  "teacherApp": "Now say: Чи щось полегшує або погіршує біль?",
+  "expectedResponse": "Does anything make the pain better or worse?",
+  "ukrainian": "Чи щось полегшує або погіршує біль?",
+  "grammarNote": "Present Simple"
+},
+{
+  "type": "conversation",
+  "teacherApp": "Translate: Оцініть біль за шкалою від одного до десяти",
+  "expectedResponse": "Can you rate your pain on a scale from one to ten?",
+  "ukrainian": "Оцініть біль за шкалою від одного до десяти",
+  "grammarNote": ""
+},
+   {
+"type": "conversation",
+"teacherApp": "Translate: Чи є у вашій родині серйозні захворювання?",
+"expectedResponse": "Are there any serious illnesses in your family?",
+"ukrainian": "Чи є у вашій родині серйозні захворювання?",
+"grammarNote": ""
+},
+
+{
+"type": "conversation",
+"teacherApp": "Say: померти",
+"expectedResponse": "pass away",
+"ukrainian": "померти",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say: Мій дідусь помер від серцевого нападу п'ятнадцять років тому",
+"expectedResponse": "My grandfather passed away from a heart attack fifteen years ago",
+"ukrainian": "Мій дідусь помер від серцевого нападу п'ятнадцять років тому",
+"grammarNote": "Past Simple"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: З ким ви живете?",
+"expectedResponse": "Who do you live with?",
+"ukrainian": "З ким ви живете?",
+"grammarNote": "Present Simple"
+},
+{
+"type": "conversation",
+"teacherApp": "Now say: Я живу зі своїм чоловіком",
+"expectedResponse": "I live with my husband",
+"ukrainian": "Я живу зі своїм чоловіком",
+"grammarNote": "Present Simple"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Ви коли-небудь потрапляли до лікарні?",
+"expectedResponse": "Have you ever been admitted to the hospital?",
+"ukrainian": "Ви коли-небудь потрапляли до лікарні?",
+"grammarNote": "Present Perfect"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say: Так, мене госпіталізували минулого року",
+"expectedResponse": "Yes, I was admitted to the hospital last year",
+"ukrainian": "Так, мене госпіталізували минулого року",
+"grammarNote": "Past Simple"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Чи є у вас якісь алергії на ліки?",
+"expectedResponse": "Do you have any medication allergies?",
+"ukrainian": "Чи є у вас якісь алергії на ліки?",
+"grammarNote": "Present Simple"
+},
+{
+"type": "conversation",
+"teacherApp": "Now say: Ні, але у мене є алергія на пилок",
+"expectedResponse": "No, but I have an allergy to pollen",
+"ukrainian": "Ні, але у мене є алергія на пилок",
+"grammarNote": ""
+},
+    {
+"type": "instruction",
+"teacherApp": "Now, we are going to practice a medical consultation, start with the following: Доброго ранку, я лікар Браун, лікар загальної практики",
+"expectedResponse": "Good morning, I am Doctor Brown, a general practitioner",
+"ukrainian": "Доброго ранку, я лікар Браун, лікар загальної практики",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "Ask: Що привело вас сьогодні сюди?",
+"expectedResponse": "What has brought you here today?",
+"ukrainian": "Що привело вас сьогодні?",
+"grammarNote": "Present Perfect"
+},
+{
+"type": "conversation",
+"teacherApp": "Now act as patient: У мене сильний головний біль, який почався раптово три дні тому",
+"expectedResponse": "I have a severe headache that started suddenly three days ago",
+"ukrainian": "У мене сильний головний біль, який почався раптово три дні тому",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "Ask: Біль постійний?",
+"expectedResponse": "Is the pain constant?",
+"ukrainian": "Біль постійний?",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "Respond as patient: Так, біль постійний і віддає в шию",
+"expectedResponse": "Yes, the pain is constant and radiates to my neck",
+"ukrainian": "Так, біль постійний і віддає в шию",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "Ask about pain: Оцініть біль за шкалою від одного до десяти",
+"expectedResponse": "Can you rate your pain on a scale from one to ten?",
+"ukrainian": "Оцініть біль за шкалою від одного до десяти",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "Ask about family history: У вашій родині є випадки сильного головного болю?",
+"expectedResponse": "Are there any cases of severe headaches in your family?",
+"ukrainian": "У вашій родині є випадки сильного головного болю?",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "Answer as a patient: Так, моя мати страждала від хронічного головного болю напруги",
+"expectedResponse": "Yes, my mother suffered from chronic tension headaches",
+"ukrainian": "Так, моя мати страждала від хронічного головного болю напруги",
+"grammarNote": "Past Simple"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask: З ким ви зараз проживаєте?",
+"expectedResponse": "Who do you live with?",
+"ukrainian": "З ким ви зараз проживаєте?",
+"grammarNote": ""
+},
+{
+"type": "conversation",
+"teacherApp": "Reply as patient: Я вдова, живу сама, чоловік помер два роки тому",
+"expectedResponse": "I am a widow, I live alone, my husband died two years ago",
+"ukrainian": "Я вдова, живу сама, чоловік помер два роки тому",
+"grammarNote": ""
+},
+{
+"type": "instruction",
+"teacherApp": "Well done, that is all for today. Say \"finish\" to end the lesson",
+"expectedResponse": "finish"
+}
+]
+}

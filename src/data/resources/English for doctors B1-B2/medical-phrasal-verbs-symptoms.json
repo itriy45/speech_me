@@ -1,0 +1,97 @@
+{
+  "vocabulary": [
+    {
+      "word": "to bring on",
+      "translation": "спричиняти"
+    },
+    {
+      "word": "to bring up",
+      "translation": "відхаркувати"
+    },
+    {
+      "word": "to carry on",
+      "translation": "продовжувати"
+    },
+    {
+      "word": "to come on",
+      "translation": "виникати"
+    },
+    {
+      "word": "to give up",
+      "translation": "припинити"
+    },
+    {
+      "word": "to put on",
+      "translation": "набирати вагу"
+    },
+    {
+      "word": "to cough up",
+      "translation": "викашляти"
+    },
+    {
+      "word": "to look after",
+      "translation": "доглядати"
+    },
+    {
+      "word": "to take off",
+      "translation": "зняти одяг"
+    },
+    {
+      "word": "to get over",
+      "translation": "подолати, оговтатися"
+    },
+    {
+      "word": "to pass out",
+      "translation": "втратити свідомість"
+    },
+    {
+      "word": "to run in the family",
+      "translation": "передаватися в родині"
+    },
+    {
+      "word": "to prop up",
+      "translation": "підтримувати, підпирати"
+    },
+    {
+      "word": "to go down",
+      "translation": "зменшуватися"
+    },
+    {
+      "word": "to turn out",
+      "translation": "виявлятись"
+    },
+    {
+      "word": "to turn up",
+      "translation": "з'являтися"
+    }
+  ],
+  "grammar": [
+    {
+      "tense": "Present Simple",
+      "notes": "Used for asking about general symptoms and conditions",
+      "practice": {
+        "question": "What ____ on the pain?",
+        "answer": "brings",
+        "options": ["brings", "brought", "bringing", "will bring"]
+      }
+    },
+    {
+      "tense": "Present Perfect",
+      "notes": "Used for discussing recent changes in condition",
+      "practice": {
+        "question": "Have you ____ on weight recently?",
+        "answer": "put",
+        "options": ["put", "putted", "puts", "putting"]
+      }
+    },
+    {
+      "tense": "Past Simple",
+      "notes": "Used for specific events in the past",
+      "practice": {
+        "question": "When did the fever ____ up?",
+        "answer": "turn",
+        "options": ["turn", "turned", "turning", "turns"]
+      }
+    }
+  ]
+}

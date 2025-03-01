@@ -1,0 +1,370 @@
+{
+"id": "medical-phrasal-verbs-symptoms",
+"title": "Lesson 5 | Medical Phrasal Verbs",
+"difficulty": "B1",
+"description": "Practice using common medical phrasal verbs to discuss symptoms and give medical advice",
+"conversation": [
+{
+"type": "instruction",
+"teacherApp": "Say \"Yes\" if you are ready to practice medical English",
+"expectedResponse": "Yes"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: спричиняти біль",
+"expectedResponse": "to bring on pain",
+"ukrainian": "спричиняти біль"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Що спричиняє біль?",
+"expectedResponse": "What brings on the pain?",
+"ukrainian": "Що спричиняє біль?"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Чи є щось особливе, що спричиняє біль?",
+"expectedResponse": "Is there anything special that brings on the pain?",
+"ukrainian": "Чи є щось особливе, що спричиняє біль?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: відхаркувати мокротиння",
+"expectedResponse": "to bring up phlegm",
+"ukrainian": "відхаркувати мокротиння"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask a patient: Коли ви кашляєте, ви відхаркуєте мокротиння?",
+"expectedResponse": "When you cough, do you bring up any phlegm?",
+"ukrainian": "Коли ви кашляєте, ви відхаркуєте мокротиння?"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Чи є щось особливе, що спричиняє біль?",
+"expectedResponse": "Is there anything special that brings on the pain?",
+"ukrainian": "Чи є щось особливе, що спричиняє біль?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Give me the English for: продовжувати приймати ліки",
+"expectedResponse": "carry on taking medications",
+"ukrainian": "продовжувати приймати ліки"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Продовжуйте приймати знеболюючі ще тиждень",
+"expectedResponse": "Carry on taking the painkillers for another week",
+"ukrainian": "Продовжуйте приймати знеболюючі ще тиждень"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: виникати",
+"expectedResponse": "come on",
+"ukrainian": "виникати"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Коли виникає біль?",
+"expectedResponse": "When does the pain come on?",
+"ukrainian": "Коли виникає біль?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask a patient: Чи біль виникає після фізичного навантаження?",
+"expectedResponse": "Does the pain come on after physical activity?",
+"ukrainian": "Чи біль виникає після фізичного навантаження?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: припинити [кинути якусь звичку]",
+"expectedResponse": "give up",
+"ukrainian": "припинити",
+"grammarNote": "[кинути якусь звичку]"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask a patient: Я раджу вам припинити палити",
+"expectedResponse": "I advise you to give up smoking",
+"ukrainian": "Я раджу вам припинити палити"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Продовжуйте приймати знеболюючі ще тиждень",
+"expectedResponse": "Carry on taking the painkillers for another week",
+"ukrainian": "Продовжуйте приймати знеболюючі ще тиждень"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: набирати вагу",
+"expectedResponse": "put on weight",
+"ukrainian": "набирати вагу"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Я набрав багато ваги за останній місяць",
+"expectedResponse": "I have put on a lot of weight in the last month",
+"ukrainian": "Я набрав багато ваги за останній місяць"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: викашляти",
+"expectedResponse": "cough up",
+"ukrainian": "викашляти"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask a patient: Ви щось викашлюєте вранці?",
+"expectedResponse": "Do you cough up anything in the morning?",
+"ukrainian": "Ви щось викашлюєте вранці?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: доглядати",
+"expectedResponse": "look after",
+"ukrainian": "доглядати"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Хто за вами доглядає вдома?",
+"expectedResponse": "Who looks after you at home?",
+"ukrainian": "Хто за вами доглядає вдома?"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Я набрав багато ваги за останній місяць",
+"expectedResponse": "I have put on a lot of weight in the last month",
+"ukrainian": "Я набрав багато ваги за останній місяць"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: зняти [одяг]",
+"expectedResponse": "take off",
+"ukrainian": "зняти",
+"grammarNote": "[одяг]"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Зніміть, будь ласка, сорочку",
+"expectedResponse": "Please take off your shirt",
+"ukrainian": "Зніміть, будь ласка, сорочку"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: подолати [оговтатися]",
+"expectedResponse": "get over",
+"ukrainian": "подолати",
+"grammarNote": "[оговтатися]"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Скільки часу вам знадобилося, щоб оговтатися після операції?",
+"expectedResponse": "How long did it take you to get over the surgery?",
+"ukrainian": "Скільки часу вам знадобилося, щоб оговтатися після операції?"
+},
+{
+"type": "conversation",
+"teacherApp": "Say in English: Хто за вами доглядає вдома?",
+"expectedResponse": "Who looks after you at home?",
+"ukrainian": "Хто за вами доглядає вдома?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: втратити свідомість",
+"expectedResponse": "pass out",
+"ukrainian": "втратити свідомість"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Він втратив свідомість через високу температуру",
+"expectedResponse": "He passed out due to high fever",
+"ukrainian": "Він втратив свідомість через високу температуру"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Коли ви востаннє втрачали свідомість?",
+"expectedResponse": "When was the last time you passed out?",
+"ukrainian": "Коли ви востаннє втрачали свідомість?"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Скільки часу вам знадобилося, щоб оговтатися після операції?",
+"expectedResponse": "How long did it take you to get over the surgery?",
+"ukrainian": "Скільки часу вам знадобилося, щоб оговтатися після операції?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: передаватися в родині",
+"expectedResponse": "run in the family",
+"ukrainian": "передаватися в родині"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Ця хвороба передається у вашій родині?",
+"expectedResponse": "Does this illness run in your family?",
+"ukrainian": "Ця хвороба передається у вашій родині?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: підтримувати [підпирати]",
+"expectedResponse": "prop up",
+"ukrainian": "підтримувати",
+"grammarNote": "[підпирати]"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Вам потрібно підтримувати голову подушками",
+"expectedResponse": "You need to prop up your head with pillows",
+"ukrainian": "Вам потрібно підтримувати голову подушками"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: зменшуватися",
+"expectedResponse": "go down",
+"ukrainian": "зменшуватися"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask a patient: Температура зменшується після ліків?",
+"expectedResponse": "Does the temperature go down after medication?",
+"ukrainian": "Температура зменшується після ліків?"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Ця хвороба передається у вашій родині?",
+"expectedResponse": "Does this illness run in your family?",
+"ukrainian": "Ця хвороба передається у вашій родині?"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: виявлятись",
+"expectedResponse": "turn out",
+"ukrainian": "виявлятись"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Виявилось, що це серцевий напад",
+"expectedResponse": "It turned out to be a heart attack",
+"ukrainian": "Виявилось, що це серцевий напад"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now translate: з'являтися",
+"expectedResponse": "turn up",
+"ukrainian": "з'являтися"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask a patient: Коли з'явилася лихоманка?",
+"expectedResponse": "When did the fever turn up?",
+"ukrainian": "Коли з'явилася лихоманка?"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Симптоми з'явилися раптово",
+"expectedResponse": "The symptoms turned up suddenly",
+"ukrainian": "Симптоми з'явилися раптово"
+},
+{
+"type": "repeat",
+"teacherApp": "Repeat: Виявилось, що це серцевий напад",
+"expectedResponse": "It turned out to be a heart attack",
+"ukrainian": "Виявилось, що це серцевий напад"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Після обстеження виявилось, що це грип",
+"expectedResponse": "After examination, it turned out to be flu",
+"ukrainian": "Після обстеження виявилось, що це грип"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Свербіж з'явився нізвідки",
+"expectedResponse": "The itching turned up out of nowhere",
+"ukrainian": "Свербіж з'явився нізвідки"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Доброго дня, я ваш лікар. Що вас турбує?",
+"expectedResponse": "Good morning, I am your doctor. What is bothering you?",
+"ukrainian": "Доброго дня, я ваш лікар. Що вас турбує?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask about pain triggers; Що спричиняє біль?",
+"expectedResponse": "What brings on the pain?",
+"ukrainian": "Що спричиняє біль?"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask about phlegm: Коли ви кашляєте, ви відхаркуєте мокротиння?",
+"expectedResponse": "When you cough, do you bring up any phlegm?",
+"ukrainian": "Коли ви кашляєте, ви відхаркуєте мокротиння?"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Симптоми з'явилися раптово?",
+"expectedResponse": "Did the symptoms turn up suddenly?",
+"ukrainian": "Симптоми з'явилися раптово?"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Хто за вами доглядає вдома?",
+"expectedResponse": "Who looks after you at home?",
+"ukrainian": "Хто за вами доглядає вдома?"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Зніміть, будь ласка, сорочку",
+"expectedResponse": "Please take off your shirt",
+"ukrainian": "Зніміть, будь ласка, сорочку"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask about consciousness: Ви втрачали свідомість?",
+"expectedResponse": "Have you passed out?",
+"ukrainian": "Ви втрачали свідомість?"
+},
+{
+"type": "conversation",
+"teacherApp": "Give me the English for: Ця хвороба передається у вашій родині?",
+"expectedResponse": "Does this illness run in your family?",
+"ukrainian": "Ця хвороба передається у вашій родині?"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Вам потрібно підтримувати голову подушками",
+"expectedResponse": "You need to prop up your head with pillows",
+"ukrainian": "Вам потрібно підтримувати голову подушками"
+},
+{
+"type": "conversation",
+"teacherApp": "How do you say in English: Температура зменшується після ліків?",
+"expectedResponse": "Does the temperature go down after medication?",
+"ukrainian": "Температура зменшується після ліків?"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Виявилося, що це грип",
+"expectedResponse": "It turned out to be the flu",
+"ukrainian": "Виявилося, що це грип"
+},
+{
+"type": "conversation",
+"teacherApp": "Ask about weight; Ви набрали вагу останнім часом?",
+"expectedResponse": "Have you put on weight recently?",
+"ukrainian": "Ви набрали вагу останнім часом?"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Продовжуйте приймати ліки ще тиждень",
+"expectedResponse": "Carry on taking medications for another week",
+"ukrainian": "Продовжуйте приймати ліки ще тиждень"
+},
+{
+"type": "instruction",
+"teacherApp": "Well done, that is all for the lesson, say \"finish\" to end the lesson",
+"expectedResponse": "finish"
+}
+]
+}

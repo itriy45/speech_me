@@ -1,0 +1,80 @@
+{
+  "vocabulary": [
+    {
+      "word": "to do for a living",
+      "translation": "заробляти на життя"
+    },
+    {
+      "word": "to take medications",
+      "translation": "приймати ліки"
+    },
+    {
+      "word": "dizziness",
+      "translation": "запаморочення"
+    },
+    {
+      "word": "illicit drugs",
+      "translation": "нелегальні препарати, наркотики"
+    },
+    {
+      "word": "to order tests",
+      "translation": "призначати обстеження"
+    },
+    {
+      "word": "medical history",
+      "translation": "історія хвороби"
+    },
+    {
+      "word": "over-the-counter medicines",
+      "translation": "безрецептурні препарати"
+    },
+    {
+      "word": "severe diseases",
+      "translation": "серйозні захворювання"
+    },
+    {
+      "word": "chronic diseases",
+      "translation": "хронічні захворювання"
+    },
+    {
+      "word": "to be allergic",
+      "translation": "мати алергію"
+    },
+    {
+      "word": "rash",
+      "translation": "висипання"
+    },
+    {
+      "word": "family history",
+      "translation": "сімейний анамнез"
+    },
+    {
+      "word": "hereditary diseases",
+      "translation": "спадкові захворювання"
+    },
+    {
+      "word": "painful periods",
+      "translation": "болюча менструація"
+    }
+  ],
+  "grammar": [
+    {
+      "tense": "Modal Verbs (May/Can for Permission)",
+      "notes": "Used to ask for permission politely in medical contexts",
+      "practice": {
+        "question": "______ I ask you some questions about your symptoms?",
+        "answer": "May",
+        "options": ["May", "Will", "Do", "Have"]
+      }
+    },
+    {
+      "tense": "Future Simple",
+      "notes": "Used to express future actions and decisions in medical context",
+      "practice": {
+        "question": "The doctor ______ prescribe new medication tomorrow.",
+        "answer": "will",
+        "options": ["will", "would", "was", "were"]
+      }
+    }
+  ]
+}

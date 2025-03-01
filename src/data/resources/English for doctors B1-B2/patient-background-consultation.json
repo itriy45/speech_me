@@ -1,0 +1,149 @@
+{
+  "vocabulary": [
+    {
+      "word": "general practitioner (GP)",
+      "translation": "лікар загальної практики"
+    },
+    {
+      "word": "to admit",
+      "translation": "поступити до лікарні"
+    },
+    {
+      "word": "to be admitted",
+      "translation": "бути госпіталізованим"
+    },
+    {
+      "word": "spouse",
+      "translation": "чоловік/дружина"
+    },
+    {
+      "word": "widow",
+      "translation": "вдова"
+    },
+    {
+      "word": "to pass away",
+      "translation": "помирати"
+    },
+    {
+      "word": "married",
+      "translation": "одружений(-а)"
+    },
+    {
+      "word": "retired",
+      "translation": "на пенсії"
+    },
+    {
+      "word": "sudden",
+      "translation": "раптовий"
+    },
+    {
+      "word": "gradual",
+      "translation": "поступовий"
+    },
+    {
+      "word": "constant",
+      "translation": "постійний"
+    },
+    {
+      "word": "to radiate",
+      "translation": "віддавати"
+    },
+    {
+      "word": "affected",
+      "translation": "уражений"
+    },
+    {
+      "word": "apart from",
+      "translation": "окрім"
+    },
+    {
+      "word": "to occur",
+      "translation": "з'являтися"
+    },
+    {
+      "word": "severe",
+      "translation": "сильний"
+    },
+    {
+      "word": "scale",
+      "translation": "шкала"
+    },
+    {
+      "word": "illness",
+      "translation": "захворювання"
+    },
+    {
+      "word": "heart attack",
+      "translation": "серцевий напад"
+    },
+    {
+      "word": "headache",
+      "translation": "головний біль"
+    }
+  ],
+  "grammar": [
+    {
+      "tense": "Present Simple 🕐",
+      "notes": "Use for medical facts & routines. Add 'usually' to check",
+      "practice": {
+        "question": "The patient ____ (have) high blood pressure.",
+        "answer": "has",
+        "options": ["has", "having", "had", "have"]
+      }
+    },
+    {
+      "tense": "Present Continuous 🏃",
+      "notes": "Use for symptoms happening RIGHT NOW during consultation",
+      "practice": {
+        "question": "The patient ____ (experience) chest pain right now.",
+        "answer": "is experiencing",
+        "options": ["experiences", "is experiencing", "experienced", "has experienced"]
+      }
+    },
+    {
+      "tense": "Past Simple ⌛",
+      "notes": "If you can add 'ago', use Past Simple for medical history",
+      "practice": {
+        "question": "When ____ the symptoms first appear?",
+        "answer": "did",
+        "options": ["did", "do", "does", "has"]
+      }
+    },
+    {
+      "tense": "Present Perfect 🔄",
+      "notes": "Use with 'ever/never' in medical history questions",
+      "practice": {
+        "question": "Have you ____ been hospitalized before?",
+        "answer": "ever",
+        "options": ["ever", "never", "already", "yet"]
+      }
+    },
+    {
+      "tense": "Questions Formation ❓",
+      "notes": "Start with 'Could you' for polite medical questions",
+      "practice": {
+        "question": "____ you describe your symptoms?",
+        "answer": "Could",
+        "options": ["Can", "Could", "Will", "Would"]
+      }
+    },
+    {
+      "tense": "Modal Verbs 💫",
+      "notes": "Use 'can/could you' for polite patient instructions",
+      "practice": {
+        "question": "You ____ take this medicine twice daily.",
+        "answer": "should",
+        "options": ["should", "must", "can", "may"]
+      }
+    },
+    {
+      "tense": "Time Expressions ⏰",
+      "notes": "ago=Past Simple, for/since=Present Perfect",
+      "practice": {
+        "question": "I've had this pain ____ last week.",
+        "answer": "since",
+        "options": ["since", "for", "ago", "before"]
+      }
+    }
+  ]
+}

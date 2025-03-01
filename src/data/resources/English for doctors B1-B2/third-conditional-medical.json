@@ -1,0 +1,123 @@
+{
+  "vocabulary": [
+    {
+      "word": "prescribe",
+      "translation": "призначити"
+    },
+    {
+      "word": "perform examination",
+      "translation": "провести огляд"
+    },
+    {
+      "word": "take tests",
+      "translation": "взяти аналізи"
+    },
+    {
+      "word": "detect disease",
+      "translation": "виявити хворобу"
+    },
+    {
+      "word": "prevent complications",
+      "translation": "запобігти ускладненням"
+    },
+    {
+      "word": "change treatment",
+      "translation": "змінити лікування"
+    },
+    {
+      "word": "insist on additional tests",
+      "translation": "наполягти на додаткових аналізах"
+    },
+    {
+      "word": "perform ultrasound",
+      "translation": "зробити УЗД"
+    },
+    {
+      "word": "follow recommendations",
+      "translation": "дотримуватися рекомендацій"
+    },
+    {
+      "word": "perform additional tests",
+      "translation": "провести додаткові тести"
+    },
+    {
+      "word": "call an ambulance",
+      "translation": "викликати швидку допомогу"
+    },
+    {
+      "word": "perform blood transfusion",
+      "translation": "зробити переливання крові"
+    },
+    {
+      "word": "apply resuscitation measures",
+      "translation": "застосувати реанімаційні заходи"
+    },
+    {
+      "word": "refer to specialist",
+      "translation": "направити до спеціаліста"
+    },
+    {
+      "word": "stroke",
+      "translation": "інсульт"
+    },
+    {
+      "word": "heart attack",
+      "translation": "серцевий напад"
+    },
+    {
+      "word": "gallstones",
+      "translation": "камені в жовчному міхурі"
+    },
+    {
+      "word": "blood clot",
+      "translation": "тромб"
+    }
+  ],
+  "grammar": [
+    {
+      "tense": "Third Conditional - HAD Trick",
+      "notes": "IF = HAD завжди разом як маркер першої частини",
+      "practice": {
+        "question": "If the patient ____ taken the medicine earlier,",
+        "answer": "had",
+        "options": ["have", "had", "would have", "has"]
+      }
+    },
+    {
+      "tense": "Third Conditional - Would Have Rule",
+      "notes": "Друга частина ЗАВЖДИ починається з would have + V3",
+      "practice": {
+        "question": "the complications ____ been prevented.",
+        "answer": "would have",
+        "options": ["had", "have", "would have", "will have"]
+      }
+    },
+    {
+      "tense": "Third Conditional - Comma Rule",
+      "notes": "Кома ставиться тільки якщо речення починається з IF",
+      "practice": {
+        "question": "If we ____ detected the disease in time,",
+        "answer": "had",
+        "options": ["would", "had", "have", "has"]
+      }
+    },
+    {
+      "tense": "Third Conditional - Time Words",
+      "notes": "Earlier/раніше, In time/вчасно, Faster/швидше - для втраченої можливості",
+      "practice": {
+        "question": "the treatment ____ been more effective.",
+        "answer": "would have",
+        "options": ["had", "would have", "have", "has"]
+      }
+    },
+    {
+      "tense": "Third Conditional - Memory Formula",
+      "notes": "IF + HAD + V3, WOULD + HAVE + V3 (Had/Have як маркери частин)",
+      "practice": {
+        "question": "If the doctor ____ performed the tests earlier,",
+        "answer": "had",
+        "options": ["have", "had", "would have", "has"]
+      }
+    }
+  ]
+}

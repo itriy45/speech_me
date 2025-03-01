@@ -1,0 +1,50 @@
+{
+  "id": "audio-example",
+  "title": "Example Dialogue with Audio URLs",
+  "difficulty": "B1",
+  "description": "An example dialogue showcasing audio URL integration",
+  "conversation": [
+    {
+      "type": "instruction",
+      "teacherApp": "Say \"Yes\" if you are ready to practice medical English",
+      "expectedResponse": "Yes",
+      "audioUrl": "https://res.cloudinary.com/dniififlx/video/upload/v1740702985/say-yes-if-you-are-ready-to-practice-medical-engli_o6x8db.wav",
+      "responseAudioUrl": "https://res.cloudinary.com/dniififlx/video/upload/v1740090069/dialogues/ppzod3blqn0v8kepeqad.mp3"
+    },
+    {
+      "type": "vocabulary",
+      "teacherApp": "Now translate: історія хвороби",
+      "expectedResponse": "medical history",
+      "ukrainian": "історія хвороби",
+      "audioUrl": "https://res.cloudinary.com/dniififlx/video/upload/v1740090069/dialogues/ppzod3blqn0v8kepeqad.mp3",
+      "responseAudioUrl": "https://res.cloudinary.com/dniififlx/video/upload/v1740702984/medical-history_hvvk8s.wav"
+    },
+    {
+      "type": "conversation",
+      "teacherApp": "Obtain the consent: Можна поставити вам декілька запитань про вашу історію хвороби?",
+      "expectedResponse": "May I ask you some questions about your medical history?",
+      "ukrainian": "Можна поставити вам декілька запитань про вашу історію хвороби?",
+      "audioUrl": "https://res.cloudinary.com/dniififlx/video/upload/v1740702984/audio-2025-02-28_slamxg.wav",
+      "responseAudioUrl": "https://res.cloudinary.com/dniififlx/video/upload/v1740702984/ask-you-some-questions-about-your-medical-history_jlxyym.wav"
+    },
+    {
+      "type": "conversation",
+      "teacherApp": "That's correct! Great job!",
+      "isCorrect": true,
+      "audioUrl": "https://res.cloudinary.com/dniififlx/video/upload/v1740090069/dialogues/ppzod3blqn0v8kepeqad.mp3"
+    },
+    {
+      "type": "conversation",
+      "teacherApp": "Here's a hint for you",
+      "isHint": true,
+      "audioUrl": "https://res.cloudinary.com/dniififlx/video/upload/v1740090069/dialogues/ppzod3blqn0v8kepeqad.mp3"
+    },
+    {
+      "type": "instruction",
+      "teacherApp": "Well done, that is all for today's lesson, say \"finish\" to end the lesson",
+      "expectedResponse": "finish",
+      "audioUrl": "https://res.cloudinary.com/dniififlx/video/upload/v1740090069/dialogues/ppzod3blqn0v8kepeqad.mp3",
+      "responseAudioUrl": "https://res.cloudinary.com/dniififlx/video/upload/v1740090069/dialogues/ppzod3blqn0v8kepeqad.mp3"
+    }
+  ]
+}

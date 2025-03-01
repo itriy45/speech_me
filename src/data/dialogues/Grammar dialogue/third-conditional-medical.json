@@ -1,0 +1,322 @@
+{
+"id": "third-conditional-medical",
+"title": "Lesson 4 | Third Conditional Practice",
+"difficulty": "B2",
+"description": "Practice using the Third Conditional in medical scenarios and decision-making",
+"conversation": [
+{
+"type": "instruction",
+"teacherApp": "Say \"Yes\" if you are ready to practice the Third Conditional in medical English",
+"expectedResponse": "Yes"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now we will understand the Third Conditional parts. Repeat the first part: \"If I had known\"",
+"expectedResponse": "If I had known",
+"grammarNote": "Past Perfect - HAD + V3"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now repeat second part: \"would have prescribed\"",
+"expectedResponse": "would have prescribed",
+"grammarNote": "WOULD HAVE + V3"
+},
+{
+"type": "conversation",
+"teacherApp": "Now the full sentence: \"If I had known about the allergy, I would have prescribed different medication\"",
+"expectedResponse": "If I had known about the allergy, I would have prescribed different medication",
+"grammarNote": "Full Third Conditional structure"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now we will only practice Past Perfect. Repeat: \"Ready to start\"",
+"expectedResponse": "Ready to start",
+"grammarNote": "Past Perfect - HAD + V3"
+},
+{
+"type": "vocabulary",
+"teacherApp": "For example, repeat: \"If we had started the treatment earlier\"",
+"expectedResponse": "If we had started the treatment earlier",
+"grammarNote": "Past Perfect - HAD + V3"
+},
+{
+"type": "vocabulary",
+"teacherApp": "проконсультуватися",
+"expectedResponse": "consult",
+"ukrainian": "проконсультуватися"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Якби я проконсультувався з кардіологом",
+"expectedResponse": "If I had consulted with the cardiologist",
+"ukrainian": "Якби я проконсультувався з кардіологом",
+"grammarNote": "Past Perfect"
+},
+{
+"type": "vocabulary",
+"teacherApp": "прочитати історію хвороби",
+"expectedResponse": "read the medical history",
+"ukrainian": "прочитати історію хвороби"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Якби я прочитав історію хвороби перед операцією",
+"expectedResponse": "If I had read the medical history before the surgery",
+"ukrainian": "Якби я прочитав історію хвороби перед операцією",
+"grammarNote": "Past Perfect"
+},
+{
+"type": "vocabulary",
+"teacherApp": "провести огляд",
+"expectedResponse": "perform an examination",
+"ukrainian": "провести огляд"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Якби я провів повний огляд",
+"expectedResponse": "If I had performed a complete examination",
+"ukrainian": "Якби я провів повний огляд",
+"grammarNote": "Past Perfect"
+},
+{
+"type": "vocabulary",
+"teacherApp": "взяти аналізи",
+"expectedResponse": "take tests",
+"ukrainian": "взяти аналізи"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Якби ми взяли всі необхідні аналізи раніше",
+"expectedResponse": "If we had taken all necessary tests earlier",
+"ukrainian": "Якби ми взяли всі необхідні аналізи раніше",
+"grammarNote": "Past Perfect"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now we will only practice WOULD HAVE part. Repeat: \"Ready to start\"",
+"expectedResponse": "Ready to start",
+"grammarNote": ""
+},
+{
+  "type": "vocabulary",
+"teacherApp": "For example, repeat: \"we would have taken the patient to the intensive care unit\"",
+"expectedResponse": "we would have taken the patient to the intensive care unit",
+"grammarNote": ""
+},
+{
+"type": "vocabulary",
+"teacherApp": "виявити хворобу",
+"expectedResponse": "detect the disease",
+"ukrainian": "виявити хворобу"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: я б виявив хворобу на ранній стадії",
+"expectedResponse": "I would have detected the disease at an early stage",
+"ukrainian": "я б виявив хворобу на ранній стадії",
+"grammarNote": "would have + Past Participle"
+},
+{
+"type": "vocabulary",
+"teacherApp": "запобігти ускладненням",
+"expectedResponse": "prevent complications",
+"ukrainian": "запобігти ускладненням"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: ми б запобігли серйозним ускладненням",
+"expectedResponse": "we would have prevented serious complications",
+"ukrainian": "ми б запобігли серйозним ускладненням",
+"grammarNote": "would have + Past Participle"
+},
+{
+"type": "vocabulary",
+"teacherApp": "змінити лікування",
+"expectedResponse": "change the treatment",
+"ukrainian": "змінити лікування"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: лікар би змінив схему лікування",
+"expectedResponse": "the doctor would have changed the treatment plan",
+"ukrainian": "лікар би змінив схему лікування",
+"grammarNote": "would have + Past Participle"
+},
+{
+"type": "vocabulary",
+"teacherApp": "госпіталізувати",
+"expectedResponse": "hospitalize",
+"ukrainian": "госпіталізувати"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: пацієнта б госпіталізували раніше",
+"expectedResponse": "the patient would have been hospitalized earlier",
+"ukrainian": "пацієнта б госпіталізували раніше",
+"grammarNote": "would have + Past Participle"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now we will only practice FULL STRUCTURE. Repeat: \"Ready to start\"",
+"expectedResponse": "Ready to start",
+"grammarNote": "Past Perfect - HAD + V3"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби я прочитав історію хвороби перед операцією, я б змінив план лікування",
+"expectedResponse": "If I had read the medical history before the surgery, I would have changed the treatment plan",
+"ukrainian": "Якби я прочитав історію хвороби перед операцією, я б змінив план лікування",
+"grammarNote": "Third Conditional - full structure"
+},
+{
+"type": "vocabulary",
+"teacherApp": "вчасно діагностувати",
+"expectedResponse": "diagnose in time",
+"ukrainian": "вчасно діагностувати"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби ми вчасно діагностували діабет, ускладнень би не було",
+"expectedResponse": "If we had diagnosed diabetes in time, there would not have been complications",
+"ukrainian": "Якби ми вчасно діагностували діабет, ускладнень би не було",
+"grammarNote": "Regret, but complications occurred"
+},
+{
+"type": "vocabulary",
+"teacherApp": "проконсультуватися з кардіологом",
+"expectedResponse": "consult with a cardiologist",
+"ukrainian": "проконсультуватися з кардіологом"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби пацієнт проконсультувався з кардіологом минулого місяця, серцевий напад можна було б попередити",
+"expectedResponse": "If the patient had consulted with a cardiologist last month, the heart attack could have been prevented",
+"ukrainian": "Якби пацієнт проконсультувався з кардіологом минулого місяця, серцевий напад можна було б попередити",
+"grammarNote": "Missed opportunity, heart attack occurred"
+},
+{
+"type": "vocabulary",
+"teacherApp": "зробити УЗД",
+"expectedResponse": "perform an ultrasound",
+"ukrainian": "зробити УЗД"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби ми зробили УЗД раніше, ми б виявили камені в жовчному міхурі",
+"expectedResponse": "If we had performed an ultrasound earlier, we would have detected the gallstones",
+"ukrainian": "Якби ми зробили УЗД раніше, ми б виявили камені в жовчному міхурі",
+"grammarNote": "Missed opportunity, stones not detected"
+},
+{
+"type": "vocabulary",
+"teacherApp": "дотримуватися рекомендацій",
+"expectedResponse": "follow recommendations",
+"ukrainian": "дотримуватися рекомендацій"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби хворий дотримувався рекомендацій лікаря, він би одужав швидше",
+"expectedResponse": "If the patient had followed the doctor's recommendations, he would have recovered faster",
+"ukrainian": "Якби хворий дотримувався рекомендацій лікаря, він би одужав швидше",
+"grammarNote": "Regret, patient did not recover faster"
+},
+{
+"type": "vocabulary",
+"teacherApp": "призначити правильну дозу",
+"expectedResponse": "prescribe the correct dose",
+"ukrainian": "призначити правильну дозу"
+},
+{
+"type": "vocabulary",
+"teacherApp": "помітити зміни на рентгені",
+"expectedResponse": "notice changes on X-ray",
+"ukrainian": "помітити зміни на рентгені"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби рентгенолог помітив зміни на знімку минулого тижня, ми б почали лікування раніше",
+"expectedResponse": "If the radiologist had noticed the changes on the X-ray last week, we would have started treatment earlier",
+"ukrainian": "Якби рентгенолог помітив зміни на знімку минулого тижня, ми б почали лікування раніше",
+"grammarNote": "Missed opportunity, changes not noticed"
+},
+{
+"type": "vocabulary",
+"teacherApp": "провести додаткові тести",
+"expectedResponse": "perform additional tests",
+"ukrainian": "провести додаткові тести"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби ми провели додаткові тести, діагноз був би точнішим",
+"expectedResponse": "If we had performed additional tests, the diagnosis would have been more accurate",
+"ukrainian": "Якби ми провели додаткові тести, діагноз був би точнішим",
+"grammarNote": "Missed opportunity, tests not performed"
+},
+{
+"type": "vocabulary",
+"teacherApp": "викликати швидку допомогу",
+"expectedResponse": "call an ambulance",
+"ukrainian": "викликати швидку допомогу"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби родичі викликали швидку допомогу раніше, пацієнт би вижив",
+"expectedResponse": "If the relatives had called an ambulance earlier, the patient would have survived",
+"ukrainian": "Якби родичі викликали швидку допомогу раніше, пацієнт би вижив",
+"grammarNote": "Missed opportunity, patient did not survive"
+},
+{
+  "type": "instruction",
+  "teacherApp": "Discuss a case with your colleague, say: Доброго ранку, докторе Браун. Я хочу обговорити діагностичний випадок.",
+  "expectedResponse": "Good morning, Doctor Brown. I want to discuss a diagnostic case.",
+  "ukrainian": "Доброго ранку, докторе Браун. Я хочу обговорити діагностичний випадок."
+},
+{
+  "type": "conversation",
+  "teacherApp": "Express regret: Якби ми розпізнали симптоми інсульту раніше, пацієнт би не втратив мову",
+  "expectedResponse": "If we had recognized the stroke symptoms earlier, the patient would not have lost speech.",
+  "ukrainian": "Якби ми розпізнали симптоми інсульту раніше, пацієнт би не втратив мову",
+  "grammarNote": "Third Conditional - regret about past outcomes"
+},
+{
+  "type": "conversation",
+  "teacherApp": "Respond: Так, і якби родичі викликали швидку, ми б встигли ввести тромболітики",
+  "expectedResponse": "Yes, and if the relatives had called an ambulance, we could have administered thrombolytics.",
+  "ukrainian": "Так, і якби родичі викликали швидку, ми б встигли ввести тромболітики",
+  "grammarNote": "Third Conditional - missed interventions"
+},
+{
+  "type": "conversation",
+  "teacherApp": "Suggest: Якби у нас був протокол швидкого реагування на інсульт, ми б діяли ефективніше",
+  "expectedResponse": "If we had a rapid stroke response protocol, we would have acted more efficiently.",
+  "ukrainian": "Якби у нас був протокол швидкого реагування на інсульт, ми б діяли ефективніше",
+  "grammarNote": "Third Conditional - system improvements"
+},
+{
+  "type": "conversation",
+  "teacherApp": "Discuss: Якби ми знали про алергію пацієнта на аспірин, ми б призначили альтернативний препарат",
+  "expectedResponse": "If we had known about the patient's aspirin allergy, we would have prescribed an alternative medication.",
+  "ukrainian": "Якби ми знали про алергію пацієнта на аспірин, ми б призначили альтернативний препарат",
+  "grammarNote": "Third Conditional - patient history importance"
+},
+{
+  "type": "conversation",
+  "teacherApp": "Suggest: Якби у відділенні був невролог в нічну зміну, процес прийняття рішень був би швидшим",
+  "expectedResponse": "If there had been a neurologist on the night shift, decisions would have been made faster.",
+  "ukrainian": "Якби у відділенні був невролог в нічну зміну, процес прийняття рішень був би швидшим",
+  "grammarNote": "Third Conditional - staffing implications"
+},
+{
+  "type": "conversation",
+  "teacherApp": "Conclude: Якби така ситуація виникла зараз, ми б діяли по-іншому",
+  "expectedResponse": "If this situation had happened now, we would have acted differently.",
+  "ukrainian": "Якби така ситуація виникла зараз, ми б діяли по-іншому",
+  "grammarNote": "Third Conditional - learned lessons"
+},
+{
+  "type": "instruction",
+  "teacherApp": "Say \"Finish\" to end the dialog",
+  "expectedResponse": "Finish"
+}
+    ]
+}

@@ -1,0 +1,322 @@
+{
+"id": "second-conditional-medical",
+"title": "Lesson 2 | Second Conditional Practice",
+"difficulty": "B2",
+"description": "Practice using the Second Conditional in medical scenarios and decision-making",
+"conversation": [
+{
+"type": "instruction",
+"teacherApp": "Say \"Yes\" if you are ready to practice the Second Conditional in medical English",
+"expectedResponse": "Yes"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now we will understand the Second Conditional parts. Repeat the first part: \"If I knew\"",
+"expectedResponse": "If I knew",
+"grammarNote": "Past Simple - V2 form"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now repeat second part: \"would recommend\"",
+"expectedResponse": "would recommend",
+"grammarNote": "WOULD + V1"
+},
+{
+"type": "conversation",
+"teacherApp": "Now the full sentence: \"If I knew the test results, I would recommend appropriate treatment\"",
+"expectedResponse": "If I knew the test results, I would recommend appropriate treatment",
+"grammarNote": "Full Second Conditional structure"
+},
+{
+"type": "vocabulary",
+"teacherApp": "Now we will only practice Past Simple. Repeat: \"Ready to start\"",
+"expectedResponse": "Ready to start",
+"grammarNote": "Past Simple in if-clause"
+},
+{
+"type": "vocabulary",
+"teacherApp": "For example, repeat: \"If I knew about the symptoms\"",
+"expectedResponse": "If I knew about the symptoms",
+"grammarNote": "Past Simple in if-clause"
+},
+{
+"type": "vocabulary",
+"teacherApp": "оглянути пацієнта",
+"expectedResponse": "examine the patient",
+"ukrainian": "оглянути пацієнта"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Якби я оглянув пацієнта",
+"expectedResponse": "If I examined the patient",
+"ukrainian": "Якби я оглянув пацієнта",
+"grammarNote": "Past Simple"
+},
+{
+"type": "vocabulary",
+"teacherApp": "мати результати аналізів",
+"expectedResponse": "have test results",
+"ukrainian": "мати результати аналізів"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Якби я мав результати аналізів",
+"expectedResponse": "If I had test results",
+"ukrainian": "Якби я мав результати аналізів",
+"grammarNote": "Past Simple"
+},
+{
+"type": "vocabulary",
+"teacherApp": "знати історію хвороби",
+"expectedResponse": "know medical history",
+"ukrainian": "знати історію хвороби"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Якби я знав історію хвороби",
+"expectedResponse": "If I knew medical history",
+"ukrainian": "Якби я знав історію хвороби",
+"grammarNote": "Past Simple"
+},
+{
+"type": "vocabulary",
+"teacherApp": "розуміти причину симптомів",
+"expectedResponse": "understand the cause of symptoms",
+"ukrainian": "розуміти причину симптомів"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: Якби я розумів причину симптомів",
+"expectedResponse": "If I understood the cause of symptoms",
+"ukrainian": "Якби я розумів причину симптомів",
+"grammarNote": "Past Simple"
+},
+
+{
+"type": "vocabulary",
+"teacherApp": "Now we will only practice WOULD part. Repeat: \"Ready to start\"",
+"expectedResponse": "Ready to start",
+"grammarNote": ""
+},
+{
+"type": "vocabulary",
+"teacherApp": "For example, repeat: \"we would take the patient to the intensive care unit\"",
+"expectedResponse": "we would take the patient to the intensive care unit",
+"grammarNote": ""
+},
+{
+"type": "vocabulary",
+"teacherApp": "призначити антибіотики",
+"expectedResponse": "prescribe antibiotics",
+"ukrainian": "призначити антибіотики"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: я б призначив антибіотики",
+"expectedResponse": "I would prescribe antibiotics",
+"ukrainian": "я б призначив антибіотики",
+"grammarNote": "would + V1"
+},
+{
+"type": "vocabulary",
+"teacherApp": "рекомендувати операцію",
+"expectedResponse": "recommend surgery",
+"ukrainian": "рекомендувати операцію"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: лікар би рекомендував операцію",
+"expectedResponse": "the doctor would recommend surgery",
+"ukrainian": "лікар би рекомендував операцію",
+"grammarNote": "would + V1"
+},
+{
+"type": "vocabulary",
+"teacherApp": "змінити дозування",
+"expectedResponse": "change the dosage",
+"ukrainian": "змінити дозування"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: ми б змінили дозування ліків",
+"expectedResponse": "we would change the medication dosage",
+"ukrainian": "ми б змінили дозування ліків",
+"grammarNote": "would + V1"
+},
+{
+"type": "vocabulary",
+"teacherApp": "направити на обстеження",
+"expectedResponse": "refer for examination",
+"ukrainian": "направити на обстеження"
+},
+{
+"type": "conversation",
+"teacherApp": "Now translate: я б направив вас на додаткове обстеження",
+"expectedResponse": "I would refer you for additional examination",
+"ukrainian": "я б направив вас на додаткове обстеження",
+"grammarNote": "would + V1"
+},
+
+{
+"type": "vocabulary",
+"teacherApp": "Now we will practice FULL STRUCTURE. Repeat: \"Ready to start\"",
+"expectedResponse": "Ready to start",
+"grammarNote": "Second Conditional - full structure"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби я оглянув пацієнта зараз, я б призначив антибіотики",
+"expectedResponse": "If I examined the patient now, I would prescribe antibiotics",
+"ukrainian": "Якби я оглянув пацієнта зараз, я б призначив антибіотики",
+"grammarNote": "Second Conditional - full structure"
+},
+{
+"type": "vocabulary",
+"teacherApp": "направити на обстеження",
+"expectedResponse": "refer for examination",
+"ukrainian": "направити на обстеження"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби я мав результати аналізів, я б направив вас на обстеження",
+"expectedResponse": "If I had test results, I would refer you for examination",
+"ukrainian": "Якби я мав результати аналізів, я б направив вас на обстеження",
+"grammarNote": "Present/future hypothetical situation"
+},
+{
+"type": "vocabulary",
+"teacherApp": "розуміти причину",
+"expectedResponse": "understand the cause",
+"ukrainian": "розуміти причину"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби я розумів причину симптомів, я б змінив дозування ліків",
+"expectedResponse": "If I understood the cause of symptoms, I would change the medication dosage",
+"ukrainian": "Якби я розумів причину симптомів, я б змінив дозування ліків",
+"grammarNote": "Present/future hypothetical situation"
+},
+{
+"type": "vocabulary",
+"teacherApp": "знати історію хвороби",
+"expectedResponse": "know medical history",
+"ukrainian": "знати історію хвороби"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби я знав історію хвороби, я б рекомендував операцію",
+"expectedResponse": "If I knew medical history, I would recommend surgery",
+"ukrainian": "Якби я знав історію хвороби, я б рекомендував операцію",
+"grammarNote": "Second Conditional - full structure"
+},
+{
+"type": "vocabulary",
+"teacherApp": "мати час",
+"expectedResponse": "have time",
+"ukrainian": "мати час"
+},
+{
+"type": "conversation",
+"teacherApp": "Translate: Якби я мав більше часу, я б направив вас на додаткове обстеження",
+"expectedResponse": "If I had more time, I would refer you for additional examination",
+"ukrainian": "Якби я мав більше часу, я б направив вас на додаткове обстеження",
+"grammarNote": "Present/future hypothetical situation"
+},
+
+{
+"type": "instruction",
+"teacherApp": "Discuss a hypothetical case with your colleague, say: Доброго ранку, докторе Сміт. Я хочу обговорити потенційний план лікування.",
+"expectedResponse": "Good morning, Doctor Smith. I want to discuss a potential treatment plan.",
+"ukrainian": "Доброго ранку, докторе Сміт. Я хочу обговорити потенційний план лікування."
+},
+{
+"type": "conversation",
+"teacherApp": "Express concern: Якби я знав історію хвороби пацієнта краще, я б міг запропонувати більш точний план лікування",
+"expectedResponse": "If I knew the patient's medical history better, I would be able to suggest a more precise treatment plan.",
+"ukrainian": "Якби я знав історію хвороби пацієнта краще, я б міг запропонувати більш точний план лікування",
+"grammarNote": "Second Conditional - present/future possibility"
+},
+{
+"type": "conversation",
+"teacherApp": "Respond: Так, і якби ми мали результати всіх аналізів зараз, ми б призначили правильні антибіотики",
+"expectedResponse": "Yes, and if we had all test results now, we would prescribe the right antibiotics.",
+"ukrainian": "Так, і якби ми мали результати всіх аналізів зараз, ми б призначили правильні антибіотики",
+"grammarNote": "Second Conditional - present situation"
+},
+{
+"type": "conversation",
+"teacherApp": "Share opinion: Якби пацієнт був молодшим, я б рекомендував операцію",
+"expectedResponse": "If the patient were younger, I would recommend surgery.",
+"ukrainian": "Якби пацієнт був молодшим, я б рекомендував операцію",
+"grammarNote": "Second Conditional - patient condition"
+},
+{
+"type": "conversation",
+"teacherApp": "Suggest: Якби у нас було необхідне обладнання, ми б проводили складніші операції в нашій клініці",
+"expectedResponse": "If we had the necessary equipment, we would perform more complex surgeries in our clinic.",
+"ukrainian": "Якби у нас було необхідне обладнання, ми б проводили складніші операції в нашій клініці",
+"grammarNote": "Second Conditional - hypothetical situation"
+},
+{
+"type": "conversation",
+"teacherApp": "Add: Якби ми мали доступ до експериментального лікування, ми б могли запропонувати альтернативні варіанти",
+"expectedResponse": "If we had access to experimental treatment, we would be able to offer alternative options.",
+"ukrainian": "Якби ми мали доступ до експериментального лікування, ми б могли запропонувати альтернативні варіанти",
+"grammarNote": "Second Conditional - treatment options"
+},
+{
+"type": "conversation",
+"teacherApp": "Discuss: Якби ми працювали в більшій команді, ми б могли надавати цілодобову допомогу",
+"expectedResponse": "If we worked in a larger team, we would be able to provide 24-hour care.",
+"ukrainian": "Якби ми працювали в більшій команді, ми б могли надавати цілодобову допомогу",
+"grammarNote": "Second Conditional - team capabilities"
+},
+{
+"type": "conversation",
+"teacherApp": "Consider: Якби я був спеціалістом з кардіології, я б міг краще оцінити стан серця пацієнта",
+"expectedResponse": "If I were a cardiology specialist, I would be able to better assess the patient's heart condition.",
+"ukrainian": "Якби я був спеціалістом з кардіології, я б міг краще оцінити стан серця пацієнта",
+"grammarNote": "Second Conditional - professional expertise"
+},
+{
+"type": "conversation",
+"teacherApp": "Explain: Якби у нас був МРТ апарат, ми б отримали детальнішу картину",
+"expectedResponse": "If we had an MRI machine, we would get a more detailed picture.",
+"ukrainian": "Якби у нас був МРТ апарат, ми б отримали детальнішу картину",
+"grammarNote": "Second Conditional - diagnostic capabilities"
+},
+{
+"type": "conversation",
+"teacherApp": "Suggest improvement: Якби ми впровадили нову систему документації, робота була б ефективнішою",
+"expectedResponse": "If we implemented a new documentation system, work would be more efficient.",
+"ukrainian": "Якби ми впровадили нову систему документації, робота була б ефективнішою",
+"grammarNote": "Second Conditional - system improvement"
+},
+{
+"type": "conversation",
+"teacherApp": "Share thought: Якби ми мали більше часу на консультації, ми б краще розуміли стан кожного пацієнта",
+"expectedResponse": "If we had more time for consultations, we would better understand each patient's condition.",
+"ukrainian": "Якби ми мали більше часу на консультації, ми б краще розуміли стан кожного пацієнта",
+"grammarNote": "Second Conditional - time management"
+},
+{
+"type": "conversation",
+"teacherApp": "Add suggestion: Якби ми співпрацювали з іншими клініками, ми б обмінювалися досвідом",
+"expectedResponse": "If we collaborated with other clinics, we would exchange experience.",
+"ukrainian": "Якби ми співпрацювали з іншими клініками, ми б обмінювалися досвідом",
+"grammarNote": "Second Conditional - collaboration"
+},
+{
+"type": "conversation",
+"teacherApp": "Conclude: Якби ми знали новітні методи лікування, ми б досягали кращих результатів",
+"expectedResponse": "If we knew the latest treatment methods, we would achieve better results.",
+"ukrainian": "Якби ми знали новітні методи лікування, ми б досягали кращих результатів",
+"grammarNote": "Second Conditional - professional development"
+},
+{
+"type": "instruction",
+"teacherApp": "Say \"Finish\" to end the dialog",
+"expectedResponse": "Finish"
+}
+]
+}

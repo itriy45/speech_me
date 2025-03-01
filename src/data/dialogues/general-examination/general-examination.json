@@ -1,0 +1,18 @@
+{
+  "id": "stomach-pain-detailed",
+  "title": "1. Stomach Pain Examination",
+  "difficulty": "B1",
+  "description": "Practice examining patients with stomach pain symptoms and discussing treatment options",
+  "conversation": [
+    {
+      "type": "instruction",
+      "teacherApp": "Say \"Yes\" if you're ready to practice medical English",
+      "expectedResponse": "Yes"
+    },
+    {
+      "type": "instruction",
+      "teacherApp": "Amazing work today!Say FINISH to complete the dialogue",
+      "expectedResponse": "finish"
+    }
+  ]
+}

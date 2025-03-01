@@ -1,0 +1,134 @@
+{
+  "vocabulary": [
+    {
+      "word": "to assess condition",
+      "translation": "оцінити стан"
+    },
+    {
+      "word": "to change the dosage",
+      "translation": "змінити дозування"
+    },
+    {
+      "word": "to examine the patient",
+      "translation": "оглянути пацієнта"
+    },
+    {
+      "word": "to exchange experience",
+      "translation": "обмінюватися досвідом"
+    },
+    {
+      "word": "to have test results",
+      "translation": "мати результати аналізів"
+    },
+    {
+      "word": "to implement system",
+      "translation": "впровадити систему"
+    },
+    {
+      "word": "to know medical history",
+      "translation": "знати історію хвороби"
+    },
+    {
+      "word": "to perform surgeries",
+      "translation": "проводити операції"
+    },
+    {
+      "word": "to prescribe antibiotics",
+      "translation": "призначити антибіотики"
+    },
+    {
+      "word": "to provide care",
+      "translation": "надавати допомогу"
+    },
+    {
+      "word": "to recommend surgery",
+      "translation": "рекомендувати операцію"
+    },
+    {
+      "word": "to refer for examination",
+      "translation": "направити на обстеження"
+    },
+    {
+      "word": "to suggest a treatment plan",
+      "translation": "запропонувати план лікування"
+    },
+    {
+      "word": "to understand the cause of symptoms",
+      "translation": "розуміти причину симптомів"
+    }
+  ],
+  "grammar": [
+    {
+      "tense": "Second Conditional - Full Structure",
+      "notes": "If + Past Simple, would + Infinitive",
+      "practice": {
+        "question": "If I ____ the patient now, I would prescribe antibiotics.",
+        "answer": "examined",
+        "options": ["treating", "examined", "examines", "examining"]
+      }
+    },
+    {
+      "tense": "Second Conditional - Present/Future Hypothetical",
+      "notes": "Used for hypothetical situations in the present or future",
+      "practice": {
+        "question": "If we ____ more advanced equipment, we would perform better surgeries.",
+        "answer": "had",
+        "options": ["having", "have", "has", "had"]
+      }
+    },
+    {
+      "tense": "Second Conditional - Professional Context",
+      "notes": "Used in professional medical scenarios",
+      "practice": {
+        "question": "If I ____ a cardiology specialist, I would assess heart conditions better.",
+        "answer": "were",
+        "options": ["am", "being", "were", "was"]
+      }
+    },
+    {
+      "tense": "Second Conditional - Treatment Plans",
+      "notes": "Used when discussing hypothetical treatment options",
+      "practice": {
+        "question": "If the patient ____ to physical therapy, recovery would be faster.",
+        "answer": "responded",
+        "options": ["responds", "responding", "respond", "responded"]
+      }
+    },
+    {
+      "tense": "Second Conditional - Medical Research",
+      "notes": "Used in research and study contexts",
+      "practice": {
+        "question": "If we ____ access to more research data, we would understand the condition better.",
+        "answer": "had",
+        "options": ["had", "having", "have", "has"]
+      }
+    },
+    {
+      "tense": "Second Conditional - Emergency Situations",
+      "notes": "Used in emergency medical scenarios",
+      "practice": {
+        "question": "If the ambulance ____ here sooner, we would start treatment immediately.",
+        "answer": "arrived",
+        "options": ["arrives", "arriving", "arrived", "arrive"]
+      }
+    },
+    {
+      "tense": "Second Conditional - Medical Equipment",
+      "notes": "Used when discussing medical technology",
+      "practice": {
+        "question": "If the MRI machine ____ working, we would diagnose faster.",
+        "answer": "were",
+        "options": ["being", "was", "is", "were"]
+      }
+    },
+    {
+      "tense": "Second Conditional - Patient Care",
+      "notes": "Used in patient care scenarios",
+      "practice": {
+        "question": "If we ____ more nurses on staff, patient care would improve.",
+        "answer": "had",
+        "options": ["have", "had", "having", "has"]
+      }
+    }
+  ]
+}

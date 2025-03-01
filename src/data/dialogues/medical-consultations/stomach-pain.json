@@ -1,0 +1,21 @@
+{
+  "id": "stomach-pain-consultation",
+  "title": "Stomach Pain Consultation",
+  "difficulty": "B1",
+  "description": "Practice medical consultation for stomach pain symptoms",
+  "icon": "stethoscope",
+  "conversation": [
+    {
+      "type": "instruction",
+      "teacherApp": "After the beep say \"Ready to start\"",
+      "expectedResponse": "Ready to start"
+    },
+    {
+      "type": "conversation",
+      "teacherApp": "Ask: Як довго у вас болить живіт?",
+      "expectedResponse": "How long have you had the stomach ache?",
+      "ukrainian": "Як довго у вас болить живіт?",
+      "grammarNote": "Present Perfect - Duration"
+    }
+  ]
+}
