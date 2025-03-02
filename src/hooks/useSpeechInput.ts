@@ -168,6 +168,10 @@ export function useSpeechInput({
     return cleanup;
   }, [initializeRecognition, cleanup]);
 
+  // TODO: should be cached
+  const playSound = new Audio('/navigation_forward-selection-minimal.wav');
+  const stopSound = new Audio('/navigation_backward-selection-minimal.wav');
+
   const handleStartRecording = useCallback(() => {
     if (speechState.isSpeaking) {
       console.log('Cannot start recording while speech is playing');
@@ -200,6 +204,7 @@ export function useSpeechInput({
         error: null,
         currentText: ''
       }));
+      playSound.play();
     } catch (err) {
       setState(prev => ({
         ...prev,
@@ -220,6 +225,7 @@ export function useSpeechInput({
       error: null
     }));
     stopSpeechState();
+    stopSound.play();
   }, [cleanup, stopSpeechState]);
 
   return {
