@@ -5,6 +5,7 @@ import { useSpeechState } from '../context/SpeechStateContext';
 import ErrorMessage from './speech/ErrorMessage';
 import TranscriptDisplay from './speech/TranscriptDisplay';
 import { useDialogueContext } from '../context/dialogue';
+import {isMobileDevice} from "../utils/deviceDetection";
 
 interface SpeechInputProps {
   onTranscript: (text: string) => void;
@@ -172,12 +173,12 @@ export default function SpeechInput({
             
             <button
               onClick={handleTextSubmit}
-              disabled={!currentText.trim() || isRecording}
+              disabled={!currentText.trim() || (isRecording && !isMobileDevice())}
               className={`
                 relative ${sizeClasses.button} rounded-full
                 flex items-center justify-center
                 transition-all duration-300
-                ${currentText.trim() && !isRecording
+                ${currentText.trim() && (!isRecording || isMobileDevice())
                   ? 'bg-white hover:bg-indigo-50 hover:shadow-md active:scale-95'
                   : 'bg-gray-50 cursor-not-allowed'
                 }

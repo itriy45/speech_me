@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { useSpeechState } from '../context/SpeechStateContext';
+import { SpeechRecognitionService } from '../services/speechRecognition/speechRecognitionService';
 
 const isMobile = () => {
   if (typeof window === 'undefined') return false;
@@ -38,7 +39,7 @@ export function useSpeechInput({
 
   const { state: speechState, startRecording: startSpeechState, stopRecording: stopSpeechState } = useSpeechState();
   
-  const recognitionRef = useRef<ExtendedSpeechRecognition | null>(null);
+  const recognitionServiceRef = useRef<SpeechRecognitionService | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout>();
 
   const setCurrentText = useCallback((text: string) => {
@@ -49,80 +50,31 @@ export function useSpeechInput({
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-    if (recognitionRef.current) {
-      try {
-        recognitionRef.current.stop();
-      } catch (err) {
-        console.error('Error stopping recognition:', err);
-      }
-    }
+    
+    recognitionServiceRef.current?.cleanup();
   }, []);
 
   const handleTextSubmit = useCallback(() => {
+    console.log('handleTextSubmit', state.currentText);
     if (state.currentText.trim()) {
+      if (state.isRecording) {
+        handleStopRecording();
+      }
       onTranscript(state.currentText.trim());
       setState(prev => ({ ...prev, currentText: '' }));
     }
-  }, [state.currentText, onTranscript]);
+  }, [state.currentText, state.isRecording, onTranscript]);
 
-  const initializeRecognition = useCallback(() => {
-    if (recognitionRef.current) return;
+  const handleError = useCallback((error: string) => {
+    setState(prev => ({ ...prev, isRecording: false, error }));
 
-    try {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (!SpeechRecognition) {
-        throw new Error('Speech recognition is not supported in this browser');
-      }
+    stopSpeechState();
+  }, [stopSpeechState]);
 
-      const recognition = new SpeechRecognition() as ExtendedSpeechRecognition;
-      recognition.mode = 'ondevice-preferred';
-      recognition.continuous = true;
-      recognition.interimResults = true;
-      recognition.lang = language;
-
-      recognition.onstart = () => {
-        setState(prev => ({
-          ...prev,
-          isRecording: true,
-          error: null,
-          currentText: ''
-        }));
-      };
-
-      recognition.onresult = (event: any) => {
-        let transcript = '';
-        for (let i = event.resultIndex; i < event.results.length; i++) {
-          transcript += event.results[i][0].transcript;
-        }
-        setState(prev => ({ ...prev, currentText: transcript }));
-      };
-
-      recognition.onerror = (event: any) => {
-        console.error('Speech recognition error:', event.error);
-        setState(prev => ({
-          ...prev,
-          isRecording: false,
-          error: event.error === 'not-allowed'
-            ? 'Please allow microphone access to use voice recording.'
-            : 'Error with speech recognition. Please try again.',
-        }));
-        stopSpeechState();
-        cleanup();
-      };
-
-      recognition.onend = () => {
-        setState(prev => ({ ...prev, isRecording: false }));
-        stopSpeechState();
-      };
-
-      recognitionRef.current = recognition;
-    } catch (err) {
-      setState(prev => ({
-        ...prev,
-        error: 'Speech recognition is not supported in this browser'
-      }));
-    }
-  }, [language, cleanup, stopSpeechState]);
+  const handleTranscript = useCallback((text: string) => {
+    console.log('handleTranscript', text);
+    setState(prev => ({ ...prev, currentText: text }));
+  }, []);
 
   // Handle keyboard shortcuts - Desktop only
   const handleKeyPress = useCallback((event: KeyboardEvent) => {
@@ -142,7 +94,7 @@ export function useSpeechInput({
         handleStartRecording();
       }
     }
-  }, [state.isRecording, state.currentText, speechState.isSpeaking, onTranscript]);
+  }, [isDesktop, state.isRecording, state.currentText, speechState.isSpeaking, onTranscript]);
 
   // Show shortcut hint for desktop users
   useEffect(() => {
@@ -163,14 +115,47 @@ export function useSpeechInput({
     }
   }, [handleKeyPress, isDesktop]);
 
-  useEffect(() => {
-    initializeRecognition();
-    return cleanup;
-  }, [initializeRecognition, cleanup]);
+  const playSoundRef = useRef<HTMLAudioElement | null>(null);
+  const stopSoundRef = useRef<HTMLAudioElement | null>(null);
 
-  // TODO: should be cached
-  const playSound = new Audio('/navigation_forward-selection-minimal.wav');
-  const stopSound = new Audio('/navigation_backward-selection-minimal.wav');
+  // Initialization of Playback Audio Elements
+  useEffect(() => {
+    if (!playSoundRef.current) {
+        playSoundRef.current = new Audio('/navigation_forward-selection-minimal.wav');
+        playSoundRef.current.preload = 'auto';
+    }
+
+    if (!stopSoundRef.current) {
+        stopSoundRef.current = new Audio('/navigation_backward-selection-minimal.wav');
+        stopSoundRef.current.preload = 'auto';
+    }
+
+    return () => {
+        // Cleanup: Pause and reset audio on unmount
+        if (playSoundRef.current) {
+          playSoundRef.current.pause();
+          playSoundRef.current.currentTime = 0;
+        }
+        if (stopSoundRef.current) {
+          stopSoundRef.current.pause();
+          stopSoundRef.current.currentTime = 0;
+        }
+    };
+  }, []);
+
+  const handleStopRecording = useCallback((automatic = false) => {
+    stopSoundRef.current?.play();
+    recognitionServiceRef.current?.stop();
+    // cleanup();
+    setState(prev => ({
+      ...prev,
+      isRecording: false,
+      error: null
+    }));
+    if (!automatic) {
+      stopSpeechState();
+    }
+  }, [stopSpeechState]);
 
   const handleStartRecording = useCallback(() => {
     if (speechState.isSpeaking) {
@@ -191,20 +176,15 @@ export function useSpeechInput({
       return;
     }
 
-    if (!recognitionRef.current) {
-      initializeRecognition();
-    }
-
     try {
-      recognitionRef.current?.start();
       startSpeechState();
+      recognitionServiceRef.current?.start(handleTranscript, handleError, playSoundRef.current, handleStopRecording, handleTextSubmit);
       setState(prev => ({
         ...prev,
         isRecording: true,
         error: null,
         currentText: ''
       }));
-      playSound.play();
     } catch (err) {
       setState(prev => ({
         ...prev,
@@ -215,18 +195,20 @@ export function useSpeechInput({
       stopSpeechState();
       cleanup();
     }
-  }, [initializeRecognition, speechState.isSpeaking, state.isRecording, startSpeechState, cleanup, stopSpeechState]);
+  }, [speechState.isSpeaking, state.isRecording, startSpeechState, cleanup, stopSpeechState, handleTranscript, handleError]);
 
-  const handleStopRecording = useCallback(() => {
-    cleanup();
-    setState(prev => ({
-      ...prev,
-      isRecording: false,
-      error: null
-    }));
-    stopSpeechState();
-    stopSound.play();
-  }, [cleanup, stopSpeechState]);
+  // Initialize recognition
+  useEffect(() => {
+    // console.log('recognition initialization');
+    if (!recognitionServiceRef.current) {
+      recognitionServiceRef.current = new SpeechRecognitionService(
+        isMobile(),
+        language
+      );
+    }
+
+    return cleanup;
+  }, []);
 
   return {
     isRecording: state.isRecording,
