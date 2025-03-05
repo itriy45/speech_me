@@ -199,7 +199,7 @@ export default function SpeechInput({
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes soundwave {
           0%, 100% { transform: scaleY(0.4); }
           50% { transform: scaleY(1); }

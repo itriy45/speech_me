@@ -162,7 +162,7 @@ const TypingIndicator = ({
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes rotate-cw {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }

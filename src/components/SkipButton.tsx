@@ -139,7 +139,7 @@ export default function SkipButton({
         </>
       )}
 
-      <style jsx>{`
+      <style>{`
         @keyframes ripple-1 {
           0% { transform: scale(1); opacity: 1; }
           100% { transform: scale(2); opacity: 0; }
