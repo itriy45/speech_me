@@ -24,7 +24,7 @@ export default class BrowserSpeechRecognition implements SpeechRecognitionStrate
     this.language = language;
   }
 
-  start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement, onHandleStop: (automatic?: boolean) => void, _onHandleTextSubmit: () => void): void {
+  start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement, onHandleStop: () => void, _onHandleTextSubmit: () => void): void {
     if (this.recognition) {
       this.recognition.start();
       return;
@@ -42,7 +42,6 @@ export default class BrowserSpeechRecognition implements SpeechRecognitionStrate
       this.recognition.lang = this.language;
 
       this.recognition.onstart = () => {
-        console.log('on web api speech recognition start');
         sound.play();
       };
 
@@ -64,7 +63,6 @@ export default class BrowserSpeechRecognition implements SpeechRecognitionStrate
       };
 
       this.recognition.onend = () => {
-        console.log('on web api speech recognition end');
         onHandleStop();
           // Do nothing, because in BrowserSpeechRecognition it's controlled outside
       };
@@ -78,10 +76,7 @@ export default class BrowserSpeechRecognition implements SpeechRecognitionStrate
   stop(): void {
     if (this.recognition) {
       this.recognition.stop();
+      this.recognition = null;
     }
-  }
-
-  cleanup(): void {
-    this.recognition = null;
   }
 }

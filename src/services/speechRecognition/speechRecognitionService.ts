@@ -29,28 +29,21 @@ export class SpeechRecognitionService {
     language: string
   ) {
     const preferredMimeType = checkSupportedTypes();
-    console.log('preferredMimeType', preferredMimeType, (isMobile && preferredMimeType !== null));
     const lang = language && language !== 'en-UK' ? language : 'en-GB';
 
     if (isMobile && preferredMimeType !== null) {
-        // const DG_API_KEY_OLD = '26e4d94440b115769beaf956760567f6feaec993';
-        const DG_API_KEY = 'ebbb5f75e8eb3b4fda6a4d2e732b6946d4ee13a4';
-        const deepgramClient = createClient(DG_API_KEY);
+        const deepgramClient = createClient(process.env.DG_API_KEY);
         this.strategy = new DeepgramSpeechRecognition(deepgramClient, lang, preferredMimeType);
     } else {
         this.strategy = new BrowserSpeechRecognition(lang);
     }
   }
 
-  start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, onHandleStop: (automatic?: boolean) => void, onHandleTextSubmit: () => void): void {
+  start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, onHandleStop: () => void, onHandleTextSubmit: () => void): void {
     this.strategy.start(onTranscript, onError, sound, onHandleStop, onHandleTextSubmit);
   }
 
   stop(): void {
     this.strategy.stop();
-  }
-
-  cleanup(): void {
-    this.strategy.cleanup();
   }
 }

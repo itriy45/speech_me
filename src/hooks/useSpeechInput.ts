@@ -40,22 +40,16 @@ export function useSpeechInput({
   const { state: speechState, startRecording: startSpeechState, stopRecording: stopSpeechState } = useSpeechState();
   
   const recognitionServiceRef = useRef<SpeechRecognitionService | null>(null);
-  const timeoutRef = useRef<NodeJS.Timeout>();
 
   const setCurrentText = useCallback((text: string) => {
     setState(prev => ({ ...prev, currentText: text }));
   }, []);
 
   const cleanup = useCallback(() => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    
-    recognitionServiceRef.current?.cleanup();
+    recognitionServiceRef.current?.stop();
   }, []);
 
   const handleTextSubmit = useCallback(() => {
-    console.log('handleTextSubmit', state.currentText);
     if (state.currentText.trim()) {
       if (state.isRecording) {
         handleStopRecording();
@@ -72,7 +66,6 @@ export function useSpeechInput({
   }, [stopSpeechState]);
 
   const handleTranscript = useCallback((text: string) => {
-    console.log('handleTranscript', text);
     setState(prev => ({ ...prev, currentText: text }));
   }, []);
 
@@ -94,7 +87,7 @@ export function useSpeechInput({
         handleStartRecording();
       }
     }
-  }, [isDesktop, state.isRecording, state.currentText, speechState.isSpeaking, onTranscript]);
+  }, [state.isRecording, state.currentText, speechState.isSpeaking, onTranscript]);
 
   // Show shortcut hint for desktop users
   useEffect(() => {
@@ -143,18 +136,15 @@ export function useSpeechInput({
     };
   }, []);
 
-  const handleStopRecording = useCallback((automatic = false) => {
-    stopSoundRef.current?.play();
-    recognitionServiceRef.current?.stop();
-    // cleanup();
+  const handleStopRecording = useCallback(() => {
+    cleanup();
     setState(prev => ({
       ...prev,
       isRecording: false,
       error: null
     }));
-    if (!automatic) {
-      stopSpeechState();
-    }
+    stopSpeechState();
+    stopSoundRef.current?.play();
   }, [stopSpeechState]);
 
   const handleStartRecording = useCallback(() => {
@@ -177,8 +167,8 @@ export function useSpeechInput({
     }
 
     try {
-      startSpeechState();
       recognitionServiceRef.current?.start(handleTranscript, handleError, playSoundRef.current, handleStopRecording, handleTextSubmit);
+      startSpeechState();
       setState(prev => ({
         ...prev,
         isRecording: true,
@@ -195,11 +185,10 @@ export function useSpeechInput({
       stopSpeechState();
       cleanup();
     }
-  }, [speechState.isSpeaking, state.isRecording, startSpeechState, cleanup, stopSpeechState, handleTranscript, handleError]);
+  }, [speechState.isSpeaking, state.isRecording, startSpeechState, stopSpeechState]);
 
   // Initialize recognition
   useEffect(() => {
-    // console.log('recognition initialization');
     if (!recognitionServiceRef.current) {
       recognitionServiceRef.current = new SpeechRecognitionService(
         isMobile(),
@@ -208,7 +197,7 @@ export function useSpeechInput({
     }
 
     return cleanup;
-  }, []);
+  }, [language, stopSpeechState, cleanup]);
 
   return {
     isRecording: state.isRecording,

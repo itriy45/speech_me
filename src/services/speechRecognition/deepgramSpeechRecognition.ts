@@ -5,15 +5,13 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
     private static WORDS_SEPARATOR = ' ';
     private static MEDIA_BATCH_SIZE_MS = 250;
     private static SPEECH_DURATION_MAX_MS = 15000;
-    private static SPEECH_DURATION_INCREMENT_MS = 1000;
     private client: DeepgramClient;
     private dgSocket: ListenLiveClient | null = null;
     private keepAliveInterval: NodeJS.Timeout | null = null;
     private mediaRecorder: MediaRecorder | null = null;
     private stream: MediaStream | null = null;
-    private lastSpeechDuration = 0;
     private speechInProgress = false;
-    private speechInterval: NodeJS.Timeout | null = null;
+    private speechTimeout: NodeJS.Timeout | null = null;
     private transcripts: string[] = [];
     private temporaryTranscripts: string[] = [];
     private temporaryTranscript = '';
@@ -29,10 +27,9 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
         }
     }
 
-    start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, onHandleStop: (automatic?: boolean) => void, onHandleTextSubmit: () => void) {
-        this.lastSpeechDuration = 0;
+    start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, onHandleStop: () => void, onHandleTextSubmit: () => void) {
         this.speechInProgress = false;
-        this.speechInterval = null;
+        this.speechTimeout = null;
         this.transcripts = [];
         this.temporaryTranscripts = [];
 
@@ -89,7 +86,7 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
 
                     this.dgSocket?.on(LiveTranscriptionEvents.Transcript, transcription => {
                         const received = transcription.channel.alternatives[0].transcript;
-                        if (received && received.trim().length > 0 && this.dgSocket?.getReadyState() === SOCKET_STATES.open) { // TODO: check 2nd statement
+                        if (received && received.trim().length > 0 && this.dgSocket?.getReadyState() === SOCKET_STATES.open) {
                             if (this.temporaryTranscript && !received.includes(this.temporaryTranscript)) {
                                 this.temporaryTranscripts.push(this.temporaryTranscript);
                             }
@@ -110,29 +107,16 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
                         onHandleStop();
                     });
 
-                    // this.dgSocket?.on(LiveTranscriptionEvents.Close, () => {
-                    //     console.log('Connection closed', this.transcripts, this.dgSocket?.getReadyState());
-                    //     onTranscript(this.transcripts.join(DeepgramSpeechRecognition.WORDS_SEPARATOR));
-                    //     onHandleStop();
-                    // });
-
                     this.dgSocket?.on(LiveTranscriptionEvents.SpeechStarted, () => {
                         if (!this.speechInProgress) {
                             this.speechInProgress = true;
-                            this.speechInterval = setInterval(() => {
-                                if (this.lastSpeechDuration < DeepgramSpeechRecognition.SPEECH_DURATION_MAX_MS) {
-                                    this.lastSpeechDuration += DeepgramSpeechRecognition.SPEECH_DURATION_INCREMENT_MS;
-                                } else {
+                            this.speechTimeout = setTimeout(() => {
+                                if (this.speechInProgress && this.mediaRecorder?.state === 'recording') {
                                     this.speechInProgress = false;
-                                    this.lastSpeechDuration = 0;
-                                    if (this.speechInterval) {
-                                        clearInterval(this.speechInterval);
-                                    }
-
                                     onHandleTextSubmit();
-                                    onHandleStop(true);
+                                    onHandleStop();
                                 }
-                            }, 1000);
+                            }, DeepgramSpeechRecognition.SPEECH_DURATION_MAX_MS);
                         }
                     });
 
@@ -159,6 +143,13 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
     }
 
     stop() {
+        this.speechInProgress = false;
+        this.temporaryTranscript = '';
+
+        if (this.speechTimeout) {
+            clearTimeout(this.speechTimeout);
+        }
+
         if (this.audioCtx && this.audioCtx.state === 'suspended') {
             return;
         }
@@ -179,16 +170,5 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
             clearInterval(this.keepAliveInterval);
             this.keepAliveInterval = null;
         }
-        this.speechInProgress = false;
-        this.lastSpeechDuration = 0;
-        if (this.speechInterval) {
-            clearInterval(this.speechInterval);
-            this.speechInterval = null;
-        }
-        this.temporaryTranscript = '';
-    }
-
-    cleanup() {
-        this.stop();
     }
 }

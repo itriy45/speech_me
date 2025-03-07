@@ -158,14 +158,14 @@ export default function SpeechInput({
               absolute inset-0 rounded-full
               border-2 border-indigo-200
               transition-all duration-300
-              ${currentText.trim() && !isRecording ? 'border-indigo-300' : ''}
+              ${currentText.trim() && (!isRecording || isMobileDevice()) ? 'border-indigo-300' : ''}
             `} />
             
             {/* Interactive Gradient Ring */}
             <div className={`
               absolute inset-[-2px] rounded-full
               transition-all duration-300
-              ${currentText.trim() && !isRecording
+              ${currentText.trim() && (!isRecording || isMobileDevice())
                 ? 'bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-700 opacity-20'
                 : 'bg-transparent'
               }
@@ -190,7 +190,7 @@ export default function SpeechInput({
               <Send className={`
                 ${sizeClasses.icon}
                 transition-all duration-300
-                ${currentText.trim() && !isRecording
+                ${currentText.trim() && (!isRecording || isMobileDevice())
                   ? 'text-purple-700 group-hover:scale-110 group-hover:translate-x-0.5'
                   : 'text-gray-400'
                 }
