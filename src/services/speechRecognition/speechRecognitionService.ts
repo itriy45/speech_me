@@ -32,15 +32,20 @@ export class SpeechRecognitionService {
     const lang = language && language !== 'en-UK' ? language : 'en-GB';
 
     if (isMobile && preferredMimeType !== null) {
-        const deepgramClient = createClient(process.env.DG_API_KEY);
-        this.strategy = new DeepgramSpeechRecognition(deepgramClient, lang, preferredMimeType);
+        try {
+            const deepgramClient = createClient(process.env.DG_API_KEY);
+            this.strategy = new DeepgramSpeechRecognition(deepgramClient, lang, preferredMimeType);
+        } catch (err) {
+            console.warn('Deepgram recognition couldn\'t be initiated, falling back to WebAPI')
+            this.strategy = new BrowserSpeechRecognition(lang);
+        }
     } else {
         this.strategy = new BrowserSpeechRecognition(lang);
     }
   }
 
-  start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, onHandleStop: () => void, onHandleTextSubmit: () => void): void {
-    this.strategy.start(onTranscript, onError, sound, onHandleStop, onHandleTextSubmit);
+  start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, onHandleStop: () => void): void {
+    this.strategy.start(onTranscript, onError, sound, onHandleStop);
   }
 
   stop(): void {

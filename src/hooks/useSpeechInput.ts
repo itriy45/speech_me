@@ -49,16 +49,6 @@ export function useSpeechInput({
     recognitionServiceRef.current?.stop();
   }, []);
 
-  const handleTextSubmit = useCallback(() => {
-    if (state.currentText.trim()) {
-      if (state.isRecording) {
-        handleStopRecording();
-      }
-      onTranscript(state.currentText.trim());
-      setState(prev => ({ ...prev, currentText: '' }));
-    }
-  }, [state.currentText, state.isRecording, onTranscript]);
-
   const handleError = useCallback((error: string) => {
     setState(prev => ({ ...prev, isRecording: false, error }));
 
@@ -137,6 +127,7 @@ export function useSpeechInput({
   }, []);
 
   const handleStopRecording = useCallback(() => {
+    stopSoundRef.current?.play();
     cleanup();
     setState(prev => ({
       ...prev,
@@ -144,8 +135,7 @@ export function useSpeechInput({
       error: null
     }));
     stopSpeechState();
-    stopSoundRef.current?.play();
-  }, [stopSpeechState]);
+  }, [cleanup, stopSpeechState]);
 
   const handleStartRecording = useCallback(() => {
     if (speechState.isSpeaking) {
@@ -167,8 +157,8 @@ export function useSpeechInput({
     }
 
     try {
-      recognitionServiceRef.current?.start(handleTranscript, handleError, playSoundRef.current, handleStopRecording, handleTextSubmit);
       startSpeechState();
+      recognitionServiceRef.current?.start(handleTranscript, handleError, playSoundRef.current, handleStopRecording);
       setState(prev => ({
         ...prev,
         isRecording: true,
@@ -185,7 +175,14 @@ export function useSpeechInput({
       stopSpeechState();
       cleanup();
     }
-  }, [speechState.isSpeaking, state.isRecording, startSpeechState, stopSpeechState]);
+  }, [speechState.isSpeaking, state.isRecording, startSpeechState, cleanup, stopSpeechState, handleTranscript, handleError]);
+
+  const handleTextSubmit = useCallback(() => {
+    if (state.currentText.trim()) {
+      onTranscript(state.currentText.trim());
+      setState(prev => ({ ...prev, currentText: '' }));
+    }
+  }, [state.currentText, onTranscript]);
 
   // Initialize recognition
   useEffect(() => {
@@ -198,6 +195,12 @@ export function useSpeechInput({
 
     return cleanup;
   }, [language, stopSpeechState, cleanup]);
+
+  useEffect(() => {
+    if (isMobile() && state.currentText.trim() && !state.isRecording) {
+      handleTextSubmit();
+    }
+  }, [state.currentText, state.isRecording, isMobile]);
 
   return {
     isRecording: state.isRecording,

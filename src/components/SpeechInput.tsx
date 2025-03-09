@@ -152,7 +152,7 @@ export default function SpeechInput({
           </div>
 
           {/* Send Button with Border - Only visible on mobile */}
-          <div className={`relative ${sizeClasses.border} flex items-center justify-center md:hidden`}>
+          <div className={`relative ${sizeClasses.border} flex items-center justify-center hidden`}>
             {/* Decorative Border */}
             <div className={`
               absolute inset-0 rounded-full

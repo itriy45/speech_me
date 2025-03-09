@@ -27,11 +27,12 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
         }
     }
 
-    start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, onHandleStop: () => void, onHandleTextSubmit: () => void) {
+    start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, onHandleStop: () => void) {
         this.speechInProgress = false;
         this.speechTimeout = null;
         this.transcripts = [];
         this.temporaryTranscripts = [];
+        this.temporaryTranscript = '';
 
         if (this.audioCtx && this.audioCtx.state === 'suspended') {
             this.audioCtx.resume();
@@ -113,7 +114,6 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
                             this.speechTimeout = setTimeout(() => {
                                 if (this.speechInProgress && this.mediaRecorder?.state === 'recording') {
                                     this.speechInProgress = false;
-                                    onHandleTextSubmit();
                                     onHandleStop();
                                 }
                             }, DeepgramSpeechRecognition.SPEECH_DURATION_MAX_MS);
@@ -144,10 +144,14 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
 
     stop() {
         this.speechInProgress = false;
-        this.temporaryTranscript = '';
 
         if (this.speechTimeout) {
             clearTimeout(this.speechTimeout);
+        }
+
+        if (this.keepAliveInterval) {
+            clearInterval(this.keepAliveInterval);
+            this.keepAliveInterval = null;
         }
 
         if (this.audioCtx && this.audioCtx.state === 'suspended') {
@@ -165,10 +169,5 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
         this.stream?.getTracks().forEach(track => track.stop());
         this.stream = null;
         this.mediaRecorder = null;
-
-        if (this.keepAliveInterval) {
-            clearInterval(this.keepAliveInterval);
-            this.keepAliveInterval = null;
-        }
     }
 }
