@@ -33,7 +33,7 @@ export class SpeechRecognitionService {
 
     if (isMobile && preferredMimeType !== null) {
         try {
-            const deepgramClient = createClient(process.env.DG_API_KEY);
+            const deepgramClient = createClient(process.env.REACT_APP_DG_API_KEY);
             this.strategy = new DeepgramSpeechRecognition(deepgramClient, lang, preferredMimeType);
         } catch (err) {
             console.warn('Deepgram recognition couldn\'t be initiated, falling back to WebAPI')
