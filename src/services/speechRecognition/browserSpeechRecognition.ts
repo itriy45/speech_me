@@ -24,7 +24,7 @@ export default class BrowserSpeechRecognition implements SpeechRecognitionStrate
     this.language = language;
   }
 
-  start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement, onHandleStop: () => void): void {
+  start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, errorSound: HTMLAudioElement | null, onHandleStop: () => void): void {
     if (this.recognition) {
       this.recognition.start();
       return;
@@ -59,6 +59,7 @@ export default class BrowserSpeechRecognition implements SpeechRecognitionStrate
             ? SPEECH_ERROR_MESSAGES.NOT_ALLOWED
             : SPEECH_ERROR_MESSAGES.GENERIC_ERROR
         );
+        errorSound?.play();
         onHandleStop();
       };
 
@@ -69,6 +70,7 @@ export default class BrowserSpeechRecognition implements SpeechRecognitionStrate
 
       this.recognition.start();
     } catch (err) {
+      errorSound?.play();
       onError('Speech recognition is not supported in this browser');
     }
   }
@@ -79,4 +81,6 @@ export default class BrowserSpeechRecognition implements SpeechRecognitionStrate
       this.recognition = null;
     }
   }
+
+  cleanup() {}
 }

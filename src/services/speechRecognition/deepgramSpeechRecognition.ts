@@ -1,52 +1,56 @@
 import SpeechRecognitionStrategy from './speechRecognitionStrategy';
-import {DeepgramClient, ListenLiveClient, LiveTranscriptionEvents, SOCKET_STATES} from '@deepgram/sdk';
+import Socket = SocketIOClient.Socket;
+
+export type SpeechTranscription = {
+    text: string;
+    isFinal: boolean;
+};
+
+export type TemporarySpeechTranscription = {
+    text: string;
+    offset: string;
+};
 
 export default class DeepgramSpeechRecognition implements SpeechRecognitionStrategy {
     private static WORDS_SEPARATOR = ' ';
     private static MEDIA_BATCH_SIZE_MS = 250;
-    private static SPEECH_DURATION_MAX_MS = 15000;
-    private client: DeepgramClient;
-    private dgSocket: ListenLiveClient | null = null;
-    private keepAliveInterval: NodeJS.Timeout | null = null;
+    private dgServerSocket: Socket | null = null;
     private mediaRecorder: MediaRecorder | null = null;
     private stream: MediaStream | null = null;
     private speechInProgress = false;
-    private speechTimeout: NodeJS.Timeout | null = null;
-    private transcripts: string[] = [];
-    private temporaryTranscripts: string[] = [];
-    private temporaryTranscript = '';
+    private transcripts: TemporarySpeechTranscription[] = [];
+    private temporaryTranscripts: TemporarySpeechTranscription[] = [];
+    private temporaryTranscript: TemporarySpeechTranscription = { text: '', offset: '' };
     private preferredMimeType: string;
     private audioCtx: AudioContext | null = null;
 
-    constructor(client: DeepgramClient, _language: string, preferredMimeType: string) {
-        this.client = client;
+    constructor(dgServerSocket: Socket, _language: string, preferredMimeType: string) {
+        this.dgServerSocket = dgServerSocket;
         this.preferredMimeType = preferredMimeType;
         this.audioCtx = new AudioContext();
-        if (this.dgSocket) {
-            this.dgSocket.requestClose();
-        }
     }
 
-    start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, onHandleStop: () => void) {
+    start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, errorSound: HTMLAudioElement | null, onHandleStop: () => void) {
         this.speechInProgress = false;
-        this.speechTimeout = null;
+        this.dgServerSocket?.emit('speech-progress', true);
+        console.log('[deepgramSpeechRecognition].start(): Starting Deepgram recognition');
         this.transcripts = [];
         this.temporaryTranscripts = [];
-        this.temporaryTranscript = '';
+        this.temporaryTranscript = { text: '', offset: '' };
 
         if (this.audioCtx && this.audioCtx.state === 'suspended') {
             this.audioCtx.resume();
         } else if (!this.audioCtx) {
-            console.error("Audio context couldn't be initialized");
+            console.error("[deepgramSpeechRecognition].start(): Audio context couldn't be initialized");
             return;
         }
 
         const dest: MediaStreamAudioDestinationNode = this.audioCtx.createMediaStreamDestination();
 
         try {
-            // 1. Get User Media
             navigator.mediaDevices.getUserMedia({ audio: true }).then(micStream => {
                 this.stream = micStream;
+                console.log('[deepgramSpeechRecognition].start(): Media stream instantiated');
 
                 if (!MediaRecorder.isTypeSupported(this.preferredMimeType)) {
                     console.error('Browser is not supported');
@@ -56,103 +60,122 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
                 const src = this.audioCtx!.createMediaStreamSource(micStream);
                 src.connect(dest);
             
-                // 2. Create MediaRecorder
                 if (!this.mediaRecorder) {
                     this.mediaRecorder = new MediaRecorder(this.stream, {
                         mimeType: this.preferredMimeType
                     });
                 }
 
-                if (!this.dgSocket) {
-                    // 3. Establish Deepgram Connection
-                    const dgOptions = {
-                        model: 'nova-3',
-                        interim_results: true,
-                        vad_events: true
-                    };
-                    this.dgSocket = this.client.listen.live(dgOptions);
-
-                    // 4. Handle Keep-Alive
-                    if (this.keepAliveInterval) {
-                        clearInterval(this.keepAliveInterval);
-                    }
-                    this.keepAliveInterval = setInterval(() => {
-                        this.dgSocket?.keepAlive();
-                    }, 3000);
+                if (!this.dgServerSocket) {
+                    throw new Error('Couldn\'t instantiate connection to Deepgram WebSocket Server');
                 }
 
-                // 5. Handle Deepgram Events
-                this.dgSocket.on(LiveTranscriptionEvents.Open, () => {
-                    sound?.play();
+                sound?.play();
 
-                    this.dgSocket?.on(LiveTranscriptionEvents.Transcript, transcription => {
-                        const received = transcription.channel.alternatives[0].transcript;
-                        if (received && received.trim().length > 0 && this.dgSocket?.getReadyState() === SOCKET_STATES.open) {
-                            if (this.temporaryTranscript && !received.includes(this.temporaryTranscript)) {
-                                this.temporaryTranscripts.push(this.temporaryTranscript);
-                            }
-                            this.temporaryTranscript = received;
-                            if (transcription.is_final === true) {
-                                this.transcripts.push(this.temporaryTranscript);
-                                this.temporaryTranscripts = [...this.transcripts];
-                            }
-                            const currentTranscription = this.temporaryTranscripts.length > 0 && this.temporaryTranscripts[this.temporaryTranscripts.length - 1].includes(this.temporaryTranscript) ?
-                                this.temporaryTranscripts.join(DeepgramSpeechRecognition.WORDS_SEPARATOR) :
-                                this.temporaryTranscripts.join(DeepgramSpeechRecognition.WORDS_SEPARATOR).concat(DeepgramSpeechRecognition.WORDS_SEPARATOR).concat(this.temporaryTranscript);
-                            onTranscript(currentTranscription);
-                        }
-                    });
+                // TODO: reconnection logic
+                if (this.dgServerSocket.connected) {
+                    console.log('[deepgramSpeechRecognition].start(): Established connection to Deepgram WebSocket Server', this.dgServerSocket.id);
 
-                    this.dgSocket?.on(LiveTranscriptionEvents.Error, err => {
-                        onError(`Deepgram error: ${err.message}`);
-                        onHandleStop();
-                    });
-
-                    this.dgSocket?.on(LiveTranscriptionEvents.SpeechStarted, () => {
-                        if (!this.speechInProgress) {
-                            this.speechInProgress = true;
-                            this.speechTimeout = setTimeout(() => {
-                                if (this.speechInProgress && this.mediaRecorder?.state === 'recording') {
-                                    this.speechInProgress = false;
-                                    onHandleStop();
-                                }
-                            }, DeepgramSpeechRecognition.SPEECH_DURATION_MAX_MS);
-                        }
-                    });
-
-                    // 6. Send Audio Data to Deepgram
                     this.mediaRecorder?.addEventListener('dataavailable', event => {
                         if (event.data.size > 0) {
-                            this.dgSocket?.send(event.data);
+                            this.dgServerSocket?.emit('audio', event.data);
                         }
                     });
 
                     this.mediaRecorder?.addEventListener('error', event => {
+                        console.error(`MediaRecorder error: ${event.error}`);
                         onError(`MediaRecorder error: ${event.error}`);
+                        errorSound?.play();
                         onHandleStop();
                     });
 
                     this.mediaRecorder?.start(DeepgramSpeechRecognition.MEDIA_BATCH_SIZE_MS);
+                } else {
+                    console.error('Couldn\'t connect to Deepgram WebSocket Server yet, need to reconnect');
+                    errorSound?.play();
+                }
+
+                this.dgServerSocket.on('transcript', (data: string, serverOffset: string) => {
+                    const transcription = JSON.parse(data) as SpeechTranscription;
+                    console.log('[deepgramSpeechRecognition].start(): Received data from Deepgram WebSocket Server:', transcription, this.dgServerSocket?.connected, this.dgServerSocket?.id);
+                    if (transcription && transcription.text.trim().length > 0 && this.dgServerSocket?.connected) {
+                        let currentTranscription = '';
+
+                        if (!transcription.isFinal) {
+                            this.temporaryTranscript = { text: transcription.text.trim(), offset: serverOffset } as TemporarySpeechTranscription;
+                            if (this.temporaryTranscripts.length === 0) {
+                                this.temporaryTranscripts.push(this.temporaryTranscript);
+                                currentTranscription = this.transcripts.map(t => t.text).join(DeepgramSpeechRecognition.WORDS_SEPARATOR).concat(transcription.text.trim());
+                            } else if (this.transcripts.length === 0 && this.temporaryTranscripts.map(t => t.offset).includes(serverOffset)) {
+                                return;
+                            } else if (this.temporaryTranscripts.map(t => t.offset).includes(serverOffset)) {
+                                currentTranscription = this.transcripts.map(t => t.text).join(DeepgramSpeechRecognition.WORDS_SEPARATOR);
+                            } else {
+                                this.temporaryTranscripts.push(this.temporaryTranscript);
+                                currentTranscription = this.transcripts.map(t => t.text).join(DeepgramSpeechRecognition.WORDS_SEPARATOR).concat(transcription.text.trim());
+                            }
+                        } else {
+                            const finalTranscript = { text: transcription.text.trim(), offset: serverOffset } as TemporarySpeechTranscription;
+                            if (this.temporaryTranscripts.length === 0 && this.transcripts.length === 0) {
+                                this.transcripts.push(finalTranscript);
+                                currentTranscription = finalTranscript.text;
+                            } else if (this.transcripts.length === 0) {
+                                this.transcripts.push(finalTranscript);
+                                this.temporaryTranscripts = [];
+                                currentTranscription = finalTranscript.text;
+                            } else if (this.transcripts.map(t => t.offset).includes(serverOffset)) {
+                                return;
+                            } else if (this.temporaryTranscripts.length === 0) {
+                                this.transcripts.push(finalTranscript);
+                                currentTranscription = this.transcripts.map(t => t.text).join(DeepgramSpeechRecognition.WORDS_SEPARATOR);
+                            } else {
+                                this.transcripts.push(finalTranscript);
+                                this.temporaryTranscripts = [];
+                                currentTranscription = this.transcripts.map(t => t.text).join(DeepgramSpeechRecognition.WORDS_SEPARATOR);
+                            }
+                        }
+
+                        if (!currentTranscription) {
+                            return;
+                        }
+
+                        console.log('[deepgramSpeechRecognition].start(): triggering onTranscript:', currentTranscription, serverOffset);
+                        onTranscript(currentTranscription);
+                    }
                 });
 
+                this.dgServerSocket.on('stop', () => {
+                    console.log('[deepgramSpeechRecognition].start(): stop event received from WS server');
+                    onHandleStop();
+                });
+
+                this.dgServerSocket.on('speech-progress', (inProgress: boolean) => {
+                    console.log('[deepgramSpeechRecognition].start(): Speech progress event:', inProgress);
+                    this.speechInProgress = inProgress;
+                });
+
+                this.dgServerSocket.on('error', (err: string) => {
+                    onError(err);
+                    console.log('[deepgramSpeechRecognition].start(): Error from Deepgram WebSocket Server received:', err);
+                    errorSound?.play();
+                    throw new Error(`Error from Deepgram WebSocket Server received: ${err}`);
+                });
+
+                this.dgServerSocket.on('disconnect', () => {
+                    console.log('[deepgramSpeechRecognition].start(): Connection was closed to Deepgram WebSocket Server');
+                });
             });
         } catch (error) {
             onError(`Failed to start Deepgram recognition: ${error}`);
+            errorSound?.play();
             onHandleStop();
         }
     }
 
     stop() {
+        console.log('[deepgramSpeechRecognition].stop(): stop called in DG speech recognition service', this.dgServerSocket?.id);
         this.speechInProgress = false;
-
-        if (this.speechTimeout) {
-            clearTimeout(this.speechTimeout);
-        }
-
-        if (this.keepAliveInterval) {
-            clearInterval(this.keepAliveInterval);
-            this.keepAliveInterval = null;
-        }
+        this.dgServerSocket?.emit('speech-progress', false);
 
         if (this.audioCtx && this.audioCtx.state === 'suspended') {
             return;
@@ -161,13 +184,17 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
         if (this.mediaRecorder?.state === 'recording') {
             this.mediaRecorder.stop();
         }
-        if (this.dgSocket && this.dgSocket.getReadyState() === SOCKET_STATES.open) {
-            this.dgSocket.requestClose();
-        }
-        
-        this.dgSocket = null;
+
         this.stream?.getTracks().forEach(track => track.stop());
         this.stream = null;
         this.mediaRecorder = null;
+    }
+
+    cleanup() {
+        console.log('[deepgramSpeechRecognition].cleanup(): cleanup called in DG speech recognition service');
+        if (this.dgServerSocket && this.dgServerSocket.connected) {
+            this.dgServerSocket.close();
+        }
+        this.dgServerSocket = null;
     }
 }

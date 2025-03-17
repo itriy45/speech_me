@@ -46,7 +46,9 @@ export function useSpeechInput({
   }, []);
 
   const cleanup = useCallback(() => {
+    console.log('[useSpeechInput].cleanup(): cleanup in useSpeechInput');
     recognitionServiceRef.current?.stop();
+    recognitionServiceRef.current?.cleanup();
   }, []);
 
   const handleError = useCallback((error: string) => {
@@ -99,7 +101,7 @@ export function useSpeechInput({
   }, [handleKeyPress, isDesktop]);
 
   const playSoundRef = useRef<HTMLAudioElement | null>(null);
-  const stopSoundRef = useRef<HTMLAudioElement | null>(null);
+  const errorSoundRef = useRef<HTMLAudioElement | null>(null);
 
   // Initialization of Playback Audio Elements
   useEffect(() => {
@@ -108,9 +110,9 @@ export function useSpeechInput({
         playSoundRef.current.preload = 'auto';
     }
 
-    if (!stopSoundRef.current) {
-        stopSoundRef.current = new Audio('/navigation_backward-selection-minimal.wav');
-        stopSoundRef.current.preload = 'auto';
+    if (!errorSoundRef.current) {
+        errorSoundRef.current = new Audio('/alert_error.wav');
+        errorSoundRef.current.preload = 'auto';
     }
 
     return () => {
@@ -119,27 +121,26 @@ export function useSpeechInput({
           playSoundRef.current.pause();
           playSoundRef.current.currentTime = 0;
         }
-        if (stopSoundRef.current) {
-          stopSoundRef.current.pause();
-          stopSoundRef.current.currentTime = 0;
+        if (errorSoundRef.current) {
+          errorSoundRef.current.pause();
+          errorSoundRef.current.currentTime = 0;
         }
     };
   }, []);
 
   const handleStopRecording = useCallback(() => {
-    stopSoundRef.current?.play();
-    cleanup();
+    recognitionServiceRef.current?.stop();
     setState(prev => ({
       ...prev,
       isRecording: false,
       error: null
     }));
     stopSpeechState();
-  }, [cleanup, stopSpeechState]);
+  }, [recognitionServiceRef.current?.stop, stopSpeechState]);
 
   const handleStartRecording = useCallback(() => {
     if (speechState.isSpeaking) {
-      console.log('Cannot start recording while speech is playing');
+      console.log('[useSpeechInput].handleStartRecording(): Cannot start recording while speech is playing');
       setState(prev => ({
         ...prev,
         error: 'Please wait for the speech to finish'
@@ -148,7 +149,7 @@ export function useSpeechInput({
     }
 
     if (state.isRecording) {
-      console.log('Already recording');
+      console.log('[useSpeechInput].handleStartRecording(): Already recording');
       setState(prev => ({
         ...prev,
         error: 'Recording is already in progress'
@@ -158,7 +159,7 @@ export function useSpeechInput({
 
     try {
       startSpeechState();
-      recognitionServiceRef.current?.start(handleTranscript, handleError, playSoundRef.current, handleStopRecording);
+      recognitionServiceRef.current?.start(handleTranscript, handleError, playSoundRef.current, errorSoundRef.current, handleStopRecording);
       setState(prev => ({
         ...prev,
         isRecording: true,
@@ -173,6 +174,7 @@ export function useSpeechInput({
         currentText: ''
       }));
       stopSpeechState();
+      console.error('[useSpeechInput].handleStartRecording(): Failed to start recording', err);
       cleanup();
     }
   }, [speechState.isSpeaking, state.isRecording, startSpeechState, cleanup, stopSpeechState, handleTranscript, handleError]);
@@ -188,13 +190,28 @@ export function useSpeechInput({
   useEffect(() => {
     if (!recognitionServiceRef.current) {
       recognitionServiceRef.current = new SpeechRecognitionService(
-        isMobile(),
-        language
+        isMobile(), language, errorSoundRef.current
       );
+      console.log('[useSpeechInput].useEffect(): recognition service initialization', recognitionServiceRef.current.wsClientId);
+      window.addEventListener("beforeunload", () => {
+        console.log('[useSpeechInput].useEffect(): add beforeunload', recognitionServiceRef.current?.wsClientId);
+        recognitionServiceRef.current?.emitEndEvent()
+      });
     }
 
-    return cleanup;
-  }, [language, stopSpeechState, cleanup]);
+    return () => {
+      if (recognitionServiceRef.current) {
+        console.log('[useSpeechInput].useEffect() return: recognition service cleanup (after init useEffect)', recognitionServiceRef.current.wsClientId);
+        recognitionServiceRef.current.stop();
+        recognitionServiceRef.current.cleanup();
+        recognitionServiceRef.current = null;
+      }
+      window.removeEventListener("beforeunload", () => {
+        console.log('[useSpeechInput].useEffect(): remove beforeunload', recognitionServiceRef.current?.wsClientId);
+        recognitionServiceRef.current?.emitEndEvent()
+      });
+    };
+  }, [language, stopSpeechState]);
 
   useEffect(() => {
     if (isMobile() && state.currentText.trim() && !state.isRecording) {
