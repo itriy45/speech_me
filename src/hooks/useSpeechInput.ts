@@ -45,6 +45,17 @@ export function useSpeechInput({
     setState(prev => ({ ...prev, currentText: text }));
   }, []);
 
+  const onRecordingStarted = useCallback(() => {
+    console.log('[useSpeechInput].onRecordingStarted()');
+    playSoundRef.current?.play();
+    setState(prev => ({
+      ...prev,
+      isRecording: true,
+      error: null,
+      currentText: ''
+    }));
+  }, []);
+
   const cleanup = useCallback(() => {
     console.log('[useSpeechInput].cleanup(): cleanup in useSpeechInput');
     recognitionServiceRef.current?.stop();
@@ -52,17 +63,20 @@ export function useSpeechInput({
   }, []);
 
   const handleError = useCallback((error: string) => {
+    errorSoundRef.current?.play();
     setState(prev => ({ ...prev, isRecording: false, error }));
 
     stopSpeechState();
   }, [stopSpeechState]);
 
   const handleTranscript = useCallback((text: string) => {
+    console.log('[useSpeechInput].handleTranscript()');
     setState(prev => ({ ...prev, currentText: text }));
   }, []);
 
   // Handle keyboard shortcuts - Desktop only
   const handleKeyPress = useCallback((event: KeyboardEvent) => {
+    console.log('[useSpeechInput].onKeyPress()]');
     if (!isDesktop || event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
 
     if (event.code === 'Space') {
@@ -159,7 +173,7 @@ export function useSpeechInput({
 
     try {
       startSpeechState();
-      recognitionServiceRef.current?.start(handleTranscript, handleError, playSoundRef.current, errorSoundRef.current, handleStopRecording);
+      recognitionServiceRef.current?.start(handleTranscript, handleError, handleStopRecording, onRecordingStarted);
       setState(prev => ({
         ...prev,
         isRecording: true,
@@ -180,11 +194,12 @@ export function useSpeechInput({
   }, [speechState.isSpeaking, state.isRecording, startSpeechState, cleanup, stopSpeechState, handleTranscript, handleError]);
 
   const handleTextSubmit = useCallback(() => {
+    console.log('[useSpeechInput].handleTextSubmit()');
     if (state.currentText.trim()) {
       onTranscript(state.currentText.trim());
       setState(prev => ({ ...prev, currentText: '' }));
     }
-  }, [state.currentText, onTranscript]);
+  }, [state.currentText]);
 
   // Initialize recognition
   useEffect(() => {
@@ -215,9 +230,10 @@ export function useSpeechInput({
 
   useEffect(() => {
     if (isMobile() && state.currentText.trim() && !state.isRecording) {
+      console.log('[useSpeechInput].useEffect(): Mobile: Submitting text', state, new Date());
       handleTextSubmit();
     }
-  }, [state.currentText, state.isRecording, isMobile]);
+  }, [state.isRecording]);
 
   return {
     isRecording: state.isRecording,

@@ -143,6 +143,7 @@ export function useAudioPlayback() {
   }, [cancel, startSpeaking, stopSpeaking]);
 
   const playAudio = useCallback((text: string, options: AudioPlaybackOptions = {}) => {
+    console.log('[useAudioPlayback].playAudio', text, options);
     const cleanText = cleanTextForSpeech(text);
     
     // Cancel any current speech or audio

@@ -52,13 +52,13 @@ export class SpeechRecognitionService {
     }
   }
 
-  start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, errorSound: HTMLAudioElement | null, onHandleStop: () => void): void {
+  start(onTranscript: (text: string) => void, onError: (error: string) => void, onHandleStop: () => void, onRecordingStarted: () => void): void {
       if (!this.strategy) {
           console.error('[speechRecognitionService].start(): Connection to NodeJS WebSocket Server is not established yet');
           this.errorSound?.play();
           // TODO: retry attempts with waiting timeout
       } else {
-          this.strategy.start(onTranscript, onError, sound, errorSound, onHandleStop);
+          this.strategy.start(onTranscript, onError, onHandleStop, onRecordingStarted);
       }
   }
 
@@ -110,6 +110,16 @@ export class SpeechRecognitionService {
         console.error('Couldn\'t initialize connection to Deepgram server', err);
         this.errorSound?.play();
     }
+
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  this.dgServerSocket?.on('connect_error', (error: any) => {
+      console.error('[speechRecognitionService].openWsConnection: Socket connection error:', error);
+      this.errorSound?.play();
+      this.dgServerSocket?.disconnect();
+      this.dgServerSocket = null;
+      // Fallback to BrowserSpeechRecognition or other error handling here.
+      this.strategy = new BrowserSpeechRecognition(this.lang);
+  });
 
     this.dgServerSocket?.on('connect', () => {
         console.log('[speechRecognitionService].constructor: Socket connected', this.dgServerSocket?.connected);

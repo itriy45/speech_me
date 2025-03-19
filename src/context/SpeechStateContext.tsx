@@ -111,6 +111,7 @@ export function SpeechStateProvider({ children }: { children: React.ReactNode })
   ]);
 
   const startPlayingStudentResponse = useCallback(() => {
+    console.log('[SpeechStateContext].startPlayingStudentResponse()', state);
     setState(prev => ({
       ...prev,
       isPlayingStudentResponse: true,

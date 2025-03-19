@@ -24,7 +24,7 @@ export default class BrowserSpeechRecognition implements SpeechRecognitionStrate
     this.language = language;
   }
 
-  start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, errorSound: HTMLAudioElement | null, onHandleStop: () => void): void {
+  start(onTranscript: (text: string) => void, onError: (error: string) => void, onHandleStop: () => void, onRecordingStarted: () => void): void {
     if (this.recognition) {
       this.recognition.start();
       return;
@@ -32,7 +32,7 @@ export default class BrowserSpeechRecognition implements SpeechRecognitionStrate
     try {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognition) {
-        throw new Error(SPEECH_ERROR_MESSAGES.NOT_SUPPORTED);
+        onError(SPEECH_ERROR_MESSAGES.NOT_SUPPORTED);
       }
 
       this.recognition = new SpeechRecognition() as ExtendedSpeechRecognition;
@@ -42,10 +42,11 @@ export default class BrowserSpeechRecognition implements SpeechRecognitionStrate
       this.recognition.lang = this.language;
 
       this.recognition.onstart = () => {
-        sound.play();
+        onRecordingStarted();
       };
 
       this.recognition.onresult = (event: any) => {
+        console.log('[browserSpeechRecognition].onStart(): recognition onresult', event);
         let transcript = '';
         for (let i = event.resultIndex; i < event.results.length; i++) {
           transcript += event.results[i][0].transcript;
@@ -54,23 +55,23 @@ export default class BrowserSpeechRecognition implements SpeechRecognitionStrate
       };
 
       this.recognition.onerror = (event: any) => {
+        console.error('Speech recognition error:', event.error);
         onError(
           event.error === 'not-allowed'
             ? SPEECH_ERROR_MESSAGES.NOT_ALLOWED
             : SPEECH_ERROR_MESSAGES.GENERIC_ERROR
         );
-        errorSound?.play();
-        onHandleStop();
+        stop();
       };
 
       this.recognition.onend = () => {
+        console.log('[browserSpeechRecognition].onStart(): recognition onend');
         onHandleStop();
           // Do nothing, because in BrowserSpeechRecognition it's controlled outside
       };
 
       this.recognition.start();
     } catch (err) {
-      errorSound?.play();
       onError('Speech recognition is not supported in this browser');
     }
   }

@@ -17,21 +17,19 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
     private dgServerSocket: Socket | null = null;
     private mediaRecorder: MediaRecorder | null = null;
     private stream: MediaStream | null = null;
-    private speechInProgress = false;
     private transcripts: TemporarySpeechTranscription[] = [];
     private temporaryTranscripts: TemporarySpeechTranscription[] = [];
     private temporaryTranscript: TemporarySpeechTranscription = { text: '', offset: '' };
     private preferredMimeType: string;
     private audioCtx: AudioContext | null = null;
 
-    constructor(dgServerSocket: Socket, _language: string, preferredMimeType: string) {
+    constructor(dgServerSocket: Socket | null, _language: string, preferredMimeType: string) {
         this.dgServerSocket = dgServerSocket;
         this.preferredMimeType = preferredMimeType;
         this.audioCtx = new AudioContext();
     }
 
-    start(onTranscript: (text: string) => void, onError: (error: string) => void, sound: HTMLAudioElement | null, errorSound: HTMLAudioElement | null, onHandleStop: () => void) {
-        this.speechInProgress = false;
+    start(onTranscript: (text: string) => void, onError: (error: string) => void, onHandleStop: () => void, onRecordingStarted: () => void) {
         this.dgServerSocket?.emit('speech-progress', true);
         console.log('[deepgramSpeechRecognition].start(): Starting Deepgram recognition');
         this.transcripts = [];
@@ -54,6 +52,8 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
 
                 if (!MediaRecorder.isTypeSupported(this.preferredMimeType)) {
                     console.error('Browser is not supported');
+                    onError('Browser is not supported');
+                    stop();
                     return;
                 }
 
@@ -70,29 +70,37 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
                     throw new Error('Couldn\'t instantiate connection to Deepgram WebSocket Server');
                 }
 
-                sound?.play();
-
                 // TODO: reconnection logic
                 if (this.dgServerSocket.connected) {
                     console.log('[deepgramSpeechRecognition].start(): Established connection to Deepgram WebSocket Server', this.dgServerSocket.id);
 
-                    this.mediaRecorder?.addEventListener('dataavailable', event => {
+                    if (!this.mediaRecorder) {
+                        onError('MediaRecorder is not initialized');
+                        stop();
+                    }
+
+                    this.mediaRecorder.addEventListener('dataavailable', event => {
                         if (event.data.size > 0) {
                             this.dgServerSocket?.emit('audio', event.data);
                         }
                     });
 
-                    this.mediaRecorder?.addEventListener('error', event => {
+                    this.mediaRecorder.onstart = () => {
+                        console.log('[deepgramSpeechRecognition].start(): MediaRecorder started');
+                        onRecordingStarted();
+                    }
+
+                    this.mediaRecorder.addEventListener('error', event => {
                         console.error(`MediaRecorder error: ${event.error}`);
                         onError(`MediaRecorder error: ${event.error}`);
-                        errorSound?.play();
-                        onHandleStop();
+                        stop();
                     });
 
-                    this.mediaRecorder?.start(DeepgramSpeechRecognition.MEDIA_BATCH_SIZE_MS);
+                    this.mediaRecorder.start(DeepgramSpeechRecognition.MEDIA_BATCH_SIZE_MS);
                 } else {
                     console.error('Couldn\'t connect to Deepgram WebSocket Server yet, need to reconnect');
-                    errorSound?.play();
+                    onError('Couldn\'t connect to Deepgram WebSocket Server yet, need to reconnect');
+                    stop();
                 }
 
                 this.dgServerSocket.on('transcript', (data: string, serverOffset: string) => {
@@ -149,32 +157,24 @@ export default class DeepgramSpeechRecognition implements SpeechRecognitionStrat
                     onHandleStop();
                 });
 
-                this.dgServerSocket.on('speech-progress', (inProgress: boolean) => {
-                    console.log('[deepgramSpeechRecognition].start(): Speech progress event:', inProgress);
-                    this.speechInProgress = inProgress;
-                });
-
                 this.dgServerSocket.on('error', (err: string) => {
                     onError(err);
                     console.log('[deepgramSpeechRecognition].start(): Error from Deepgram WebSocket Server received:', err);
-                    errorSound?.play();
-                    throw new Error(`Error from Deepgram WebSocket Server received: ${err}`);
                 });
 
                 this.dgServerSocket.on('disconnect', () => {
                     console.log('[deepgramSpeechRecognition].start(): Connection was closed to Deepgram WebSocket Server');
+                    onHandleStop();
                 });
             });
         } catch (error) {
             onError(`Failed to start Deepgram recognition: ${error}`);
-            errorSound?.play();
-            onHandleStop();
+            stop();
         }
     }
 
     stop() {
         console.log('[deepgramSpeechRecognition].stop(): stop called in DG speech recognition service', this.dgServerSocket?.id);
-        this.speechInProgress = false;
         this.dgServerSocket?.emit('speech-progress', false);
 
         if (this.audioCtx && this.audioCtx.state === 'suspended') {

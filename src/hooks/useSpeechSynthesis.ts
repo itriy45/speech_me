@@ -177,6 +177,7 @@ const preprocessText = (text: string): {
       }
     }
   }
+  console.log('[useSpeechSynthesis].preprocessText', segments, 'pauseDurations', pauseDurations);
 
   return { segments, pauseDurations };
 };
@@ -194,6 +195,7 @@ function useSpeechSynthesis() {
   const warmupAttemptRef = useRef(0);
 
   const warmupVoice = useCallback(async (): Promise<boolean> => {
+    console.log('[useSpeechSynthesis].warmupVoice', isWarmedUp, window.speechSynthesis);
     if (isWarmedUp || !window.speechSynthesis) return true;
     
     return new Promise((resolve) => {
@@ -347,6 +349,7 @@ function useSpeechSynthesis() {
     options: SpeechOptions = {},
     onComplete?: () => void
   ) => {
+    console.log('[useSpeechSynthesis].speakSegment', segment, options);
     const utterance = new SpeechSynthesisUtterance(segment.text);
     utteranceRef.current = utterance;
 
@@ -402,6 +405,7 @@ function useSpeechSynthesis() {
 
     utterance.onend = () => {
       onComplete?.();
+      console.log('Speech synthesis complete');
     };
 
     utterance.onerror = (event) => {
@@ -413,14 +417,17 @@ function useSpeechSynthesis() {
 
     if (isAndroid) {
       setTimeout(() => {
+        console.log('[useSpeechSynthesis].speakSegment() utterance passed to speak (Android)', utterance);
         window.speechSynthesis.speak(utterance);
       }, 50);
     } else {
+      console.log('[useSpeechSynthesis].speakSegment() utterance passed to speak (non-Android)', utterance);
       window.speechSynthesis.speak(utterance);
     }
   }, [findBestVoice, cleanup]);
 
   const speak = useCallback(async (text: string, options: SpeechOptions = {}) => {
+    console.log('[useSpeechSynthesis].speak', text, options);
     if (!text.trim()) return;
     
     cleanup();
@@ -467,6 +474,7 @@ function useSpeechSynthesis() {
         }
       };
 
+      console.log('[useSpeechSynthesis] Speak Next Segment (0)');
       speakNextSegment(0);
 
       timeoutRef.current = setTimeout(() => {

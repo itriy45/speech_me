@@ -24,6 +24,7 @@ const VOICE_OPTIONS = {
 
 export function DialogueProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(dialogueReducer, initialState);
+  console.log('[DialogueContext].render(): useSpeechSynthesis init');
   const { speak, cancel, speaking } = useSpeechSynthesis();
   const { playAudioFromUrl, playAudio, stopAudio } = useAudioPlayback();
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -47,6 +48,7 @@ export function DialogueProvider({ children }: { children: ReactNode }) {
 
   // Updated function to handle both speech synthesis and audio URLs
   const speakContent = useCallback(async (text: string, audioUrl: string | undefined, callbacks: any) => {
+    console.log('[DialogueContext].speakContent', text, !audioUrl);
     if (audioUrl) {
       // Use audio URL if available
       try {
@@ -89,6 +91,7 @@ export function DialogueProvider({ children }: { children: ReactNode }) {
   }, [speak, playAudioFromUrl]);
 
   const showDialogueStep = useCallback((step: DialogueStep) => {
+    console.log('[DialogueContext].showDialogueStep', step, isSpeaking);
     if (isSpeaking) {
       setPendingStep(step);
       return;
@@ -168,6 +171,7 @@ export function DialogueProvider({ children }: { children: ReactNode }) {
   }, [isSpeaking, pendingStep, showDialogueStep]);
 
   const handleTranscript = useCallback((text: string) => {
+    console.log('[DialogueContext].handleTranscript', text);
     if (!state.currentDialogue || !state.currentDialogue.conversation[state.currentSentenceIndex]) {
       return;
     }

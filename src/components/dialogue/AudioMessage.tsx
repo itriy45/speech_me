@@ -91,6 +91,7 @@ export default function AudioMessage({
 
   // Enhanced audio playback with better fallback to speech synthesis
   const playWithSpeechState = useCallback(async (message: Message) => {
+    console.log('[AudioMessage].playWithSpeechState', message);
     startPlayingStudentResponse();
     setIsLoading(true);
     
